@@ -18,7 +18,12 @@ export const usePatient = () => {
     const [Paciente, setPaciente] = useState({
         nombre: '',
         apellido: '',
-        fechaNacimiento: ''
+        fechaNacimiento: '',
+        carrera: '',
+        departamento: '',
+        sexo: '',
+        telefono: '',
+        tipoPaciente: ''
     });
 
     const EditOrDeleteSelector = (data, caso) => {
@@ -69,6 +74,12 @@ export const usePatient = () => {
                         dat.nombre = Paciente.nombre;
                         dat.apellido = Paciente.apellido;
                         dat.fechaNacimiento = Paciente.fechaNacimiento;
+                        dat.carrera = Paciente.carrera;
+                        dat.departamento = Paciente.departamento;
+                        dat.sexo = Paciente.sexo;
+                        dat.telefono = Paciente.telefono;
+                        dat.tipoPaciente = Paciente.tipoPaciente;
+                       
                     }
                 })
                 setState(dataNueva);
@@ -77,7 +88,12 @@ export const usePatient = () => {
         setPaciente({
             nombre: '',
             apellido: '',
-            fechaNacimiento: ''
+            fechaNacimiento: '',
+            carrera: '',
+            departamento: '',
+            sexo: '',
+            telefono: '',
+            tipoPaciente: ''
         });
     }
 
