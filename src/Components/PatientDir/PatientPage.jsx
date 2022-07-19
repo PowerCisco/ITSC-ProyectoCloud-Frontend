@@ -2,8 +2,8 @@
 import './PatientPageStyle.scss'
 import { Table, TableContainer, TableHead, TableCell, TableRow, TableBody, Modal, Button, TextField, FormControlLabel, FormLabel, Radio, RadioGroup } from '@material-ui/core'
 import { Edit, Delete } from '@mui/icons-material'
-import { usePatient } from '../../Hooks/usePatient'
-import { ModalBodyPacientes } from '../../Styles For Components/ModalStyle'
+import { usePatient } from '../../../Hooks/usePatient'
+import { ModalBodyPacientes } from '../../../Styles For Components/ModalStyle'
 
 
 
