@@ -27,6 +27,7 @@ export const usePatient = () => {
     });
 
     const EditOrDeleteSelector = (data, caso) => {
+       
         setPaciente(data);
         (caso === 'Editar') ? setEditState(true) : openCloseDeleteModal();
 

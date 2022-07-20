@@ -145,12 +145,12 @@ export const PatientPage = () => {
       <div className='App content'>
         <br />
 
-        <Button className="insertar" onClick={() => openCloseCreateModal()}>Insertar</Button>
         <br /> <br />
 
         <TablePatinent State={State} EditOrDeleteSelector={EditOrDeleteSelector} />
 
 
+        <Button className="insertar" onClick={() => openCloseCreateModal()}>Insertar</Button>
 
         <Modal open={CreateState}
           onClose={openCloseCreateModal}
