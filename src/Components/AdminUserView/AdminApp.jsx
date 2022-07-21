@@ -12,7 +12,7 @@ import { NotFound } from "../Not Found Page/NotFound"
 import { SidMenu } from "../Sidemenu/SidMenu"
 
 
-export const MainApp = () => {
+export const AdminApp = () => {
 
 
     return (
@@ -23,7 +23,7 @@ export const MainApp = () => {
                 {/* TODO:HomePage */}
                 {/* <Route path='/' element={} /> */}
                 {/* Rutas del auditor */}
-                {/* Rutas del administrador */}
+            
                 <Route path='/admin/mantenimiento_paciente' element={<PatientPage />} />
                 <Route path='/admin/reporte' element={<ReportPage />} />
                 <Route path='/admin/atenciones' element={<AtentionPage />} />

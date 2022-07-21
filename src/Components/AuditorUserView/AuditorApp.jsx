@@ -10,7 +10,7 @@ import { NotFound } from "../Not Found Page/NotFound"
 import { SidMenu } from "../Sidemenu/SidMenu"
 
 
-export const MainApp = () => {
+export const AuditorApp = () => {
 
 
     return (
