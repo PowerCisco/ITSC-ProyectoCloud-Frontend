@@ -130,10 +130,12 @@ export const TablePatinent = ({State,EditOrDeleteSelector }) => {
                     checkboxSelection = {false}
                     pageSize={pageSize}
                     onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-                    rowsPerPageOptions={[10, 25, 50]}
+            
                     pagination
                     localeText={{
-                        toolbarExportLabel:"Exportar",
+                    
+                        toolbarExportPrint:"Imprimir",
+                       toolbarExportCSV:"Exportar Archivo .csv",
                         toolbarColumns: "Columnas",
                         toolbarFilters: "Filtros",
                         toolbarExport: "Exportar Data"
