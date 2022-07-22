@@ -2,6 +2,9 @@ import React from 'react'
 
 export const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+    <>
+    {/* TODO: Rutas a Medico, Auditor, Admin */}
+    
+    </>
   )
 }

@@ -1,12 +1,12 @@
 .Box{
     height: 80vh;
     background-color:rgb(185, 202, 223);
-  
+    border-radius: 1%;
     width: 100%;
     .Box-DataGrid{
       height: 80vh;
-      background-color:rgb(252, 252, 252);
-     
+      background-color:rgb(185, 202, 223);
+      border-radius: 1%;
       width: 100%;
     }
   }
@@ -14,16 +14,13 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-shadow: 0px 0px 2px #000;
     position: absolute;
- 
+    border-radius: 2%;
     top: 4%;
     left: -46%;
   }
   
   .Pr-Row{
-    background-color: rgba(179, 194, 250, 0.2);
+    background-color: rgba(125, 152, 253, 0.2);
    
   }
-
-
-
- 
+  
