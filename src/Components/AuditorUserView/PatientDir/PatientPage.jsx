@@ -4,10 +4,10 @@ import { ModalBodyPacientes } from '../../../Styles For Components/ModalStyle'
 import { TablePatinent } from './TablePatinent'
 import IconButton from '@mui/material/IconButton';
 
-import './PatientPageStyle.scss'
+
 import AddTask from '@mui/icons-material/AddTask'
 
-
+import './PatientPageStyle.scss'
 
 
 

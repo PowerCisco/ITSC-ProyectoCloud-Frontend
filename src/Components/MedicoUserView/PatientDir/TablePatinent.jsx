@@ -3,13 +3,14 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import './TablePatient.scss';
 import {
-    DataGrid, GridToolbar, GridToolbarContainer,
+    DataGrid,  GridToolbarContainer,
     GridToolbarColumnsButton,
     GridToolbarFilterButton,
     GridToolbarExport,
 } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
+
 
 
 
@@ -65,7 +66,8 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
         },
     });
     const columns = [
-        { field: 'pacienteId', headerName: 'PacienteID', width: 70 },
+        { field: 'pacienteId', headerName: 'ID', width: 60,
+        headerClassName: 'super-app-theme--header', },
         {
             field: 'nombre',
             headerName: 'Nombre',
@@ -73,34 +75,40 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
 
             width: 125,
             editable: false,
-
+            headerAlign: 'center',
+            
         },
         {
             field: 'apellido',
             headerName: 'Apellido',
             width: 125,
             editable: false,
-
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header',
         },
         {
             field: 'fechaNacimiento',
             headerName: 'Fecha De Nacimiento',
             width: 120,
             editable: false,
-
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header'
         },
         {
             field: 'tipoPaciente',
             headerName: 'Tipo de Paciente',
             width: 200,
             editable: false,
-
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header'
         },
         {
             field: 'carrera',
             headerName: 'Carrera',
-            width: 200,
+            width: 150,
             editable: false,
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header'
 
         },
         {
@@ -108,34 +116,40 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
             headerName: 'Matricula',
             width: 90,
             editable: false,
-
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header'
         },
         {
             field: 'departamento',
             headerName: 'Departamento',
-            width: 120,
+            width: 150,
             editable: false,
-
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header'
         },
         {
             field: 'telefono',
             headerName: 'Telefono',
             width: 150,
             editable: false,
-
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header'
         },
         {
             field: 'sexo',
             headerName: 'Sexo',
             width: 100,
             editable: false,
-
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header'
         },
         {
             field: "Editar",
             headerName: "Editar",
             sortable: false,
             width: 90,
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header',
             renderCell: (params) => {
 
                 const data = params.row;
@@ -148,6 +162,8 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
             field: "Eliminar",
             headerName: "Eliminar",
             sortable: false,
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header',
             renderCell: (params) => {
 
                 const data = params.row;
@@ -179,7 +195,17 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
     return (
         <>
 
-            <Box className='Box'>
+            <Box className='Box'
+          sx={{
+           
+            '& .super-app-theme--header': {
+              backgroundColor: '#90CAF980',
+                fontSize: '16px',
+                fontWeight: 900
+            },
+          }}
+            >
+            
                 <DataGrid
                     className='Box-DataGrid'
                     getRowId={(State) => State.pacienteId}
@@ -189,7 +215,7 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
                     checkboxSelection={false}
                     pageSize={pageSize}
                     onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-                    rowsPerPageOptions={[10, 25, 50]}
+                    rowsPerPageOptions={[]}
                     pagination
                     localeText={customText}
                     components={{ Toolbar: CustomToolbar }}
@@ -200,8 +226,10 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
                         borderColor: '#00000',
                         '& .MuiDataGrid-cell:hover': {
                           color: '#42A5F5',
+
                         },
-                      }}
+                       
+                    }}
                 />
             </Box>
 

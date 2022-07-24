@@ -18,23 +18,24 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     display: 'flex',
     flexDirection: 'column',
-    width: 700,
-    height: 700,
+    width: 300,
+    height: 750,
     backgroundColor: theme.palette.background.paper,
-    border: '1px solid #000',
+    border: '2px solid #90CAF9',
     boxShadow: theme.shadows[9],
     padding: theme.spacing(2, 4, 3),
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    borderRadius: '5%'
+    borderRadius: '0%'
   },
   iconos: {
     cursor: 'pointer'
   },
   inputMaterial: {
     marginTop:'3px',
-    width: '100%',
+    marginLeft:'10px',
+    width: '10%',
     borderRadius: '2%'
   }
 }));

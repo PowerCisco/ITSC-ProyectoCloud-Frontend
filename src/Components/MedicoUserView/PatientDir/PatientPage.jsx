@@ -1,11 +1,11 @@
 import { Modal, Button, TextField, FormControlLabel, FormLabel, Radio, RadioGroup } from '@material-ui/core'
 import { usePatient } from '../../../Hooks/usePatient'
 import { ModalBodyPacientes } from '../../../Styles For Components/ModalStyle'
-import { TablePatinent } from './TablePatinent'
+import { TablePatinent } from './TablePatinent';
 import IconButton from '@mui/material/IconButton';
-
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import './PatientPageStyle.scss'
-import AddTask from '@mui/icons-material/AddTask'
+
 
 
 
@@ -75,8 +75,8 @@ export const PatientPage = () => {
 
 
       <div align="right">
-        <Button color="primary" onClick={() => PostPatient()}>Insertar</Button>
-        <Button onClick={() => openCloseCreateModal()}>Cancelar</Button>
+        <Button  onClick={() => PostPatient()}>Insertar</Button>
+        <Button  onClick={() => openCloseCreateModal()}>Cancelar</Button>
       </div>
     </div>
   )
@@ -153,11 +153,12 @@ export const PatientPage = () => {
 
         <TablePatinent State={State} EditOrDeleteSelector={EditOrDeleteSelector} />
 
-
-        <IconButton className="insertar" onClick={() => openCloseCreateModal()}>
-          <AddTask />
-
+        <IconButton  aria-label="add to shopping cart">
+          <AddCircleOutlineIcon sx={{ fontSize: 40 }} className="insertar" onClick={() => openCloseCreateModal()} />
         </IconButton>
+
+
+
 
         <Modal open={CreateState}
           onClose={openCloseCreateModal}
