@@ -26,8 +26,7 @@ export const MedicoApp = () => {
                 <Route path='/medico/atenciones' element={<AtentionPage />} />
 
         
-
-
+                
                 <Route path='/error' element={<NotFound />} />
                 <Route path='/*' element={<Navigate to="error" />} />
 
