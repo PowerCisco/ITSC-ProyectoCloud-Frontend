@@ -14,17 +14,19 @@
 }
 
 .insertar{
-    color:#2196F3;
-    position: absolute;
-    outline: none;
-    top: -690px;
-    left: -640px;
-
-    &:hover{
-      color:#1E88E5;
-      transform: rotate(10deg);
-      transition: all .5s ease-in-out;
-    }
+  color:#2196F3;
+  position: absolute;
+  outline: none;
+  top: 2%;
+  left:0%;
+  width: 50px;
+  height: 50px;
+  transition: all .5s ease-in-out;
+  &:hover{
+    color:#1E88E5;
+    transform: rotate(20deg);
+   
+  }
   }
 
 

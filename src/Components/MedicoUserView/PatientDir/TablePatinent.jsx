@@ -1,7 +1,6 @@
 import { Button } from '@material-ui/core';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import './TablePatient.scss';
 import {
     DataGrid,  GridToolbarContainer,
     GridToolbarColumnsButton,
@@ -10,6 +9,7 @@ import {
 } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
+import './TablePatient.scss';
 
 
 
@@ -154,7 +154,7 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
 
                 const data = params.row;
                 return  <ThemeProvider theme={theme}>
-                    <Button variant="contained" color = "primary"  onClick={() => EditOrDeleteSelector(data, "Editar")}>Editar</Button>;
+                    <Button variant="contained" color = "primary"  onClick={() => EditOrDeleteSelector(data, "Editar")}>Editar</Button>
                 </ThemeProvider>
             },
         },
@@ -168,7 +168,7 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
 
                 const data = params.row;
                 return <ThemeProvider theme={theme}>
-                    <Button  variant="contained"  color="secondary" onClick={() => EditOrDeleteSelector(data, "Eliminar")}>Eliminar</Button>;
+                    <Button  variant="contained"  color="secondary" onClick={() => EditOrDeleteSelector(data, "Eliminar")}>Eliminar</Button>
                     </ThemeProvider>
                 },
         }
@@ -185,7 +185,6 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
 
                 <GridToolbarColumnsButton />
                 <GridToolbarFilterButton />
-                <GridToolbarExport />
             </GridToolbarContainer>
         )
     }

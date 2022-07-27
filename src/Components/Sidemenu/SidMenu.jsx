@@ -17,15 +17,14 @@ export const SidMenu = () => {
             <hr/>
             <SubMenu title="Pacientes">
             <IconContext.Provider value={{ color: "grey", size: "1.5em" }}  >
-
-            <MenuItem icon={<BsEye/>}>Ver Pacientes<Link to='/medico/mantenimiento_paciente' /></MenuItem>
             <MenuItem icon={<IoIosAddCircleOutline/>}>Agregar Paciente<Link to='/medico/mantenimiento_paciente' /></MenuItem>
             </IconContext.Provider>
             </SubMenu>
 
             <SubMenu title="Atenciones">
+            <MenuItem icon={<BsEye/>}>Ver Atenciones <Link to='/medico/atenciones' /></MenuItem>
             <MenuItem icon={<TbReportMedical/>}>Agregar Atenciones <Link to='/medico/atenciones' /></MenuItem>
-            <MenuItem icon={<TbReportMedical/>}>Ver Atenciones <Link to='/medico/atenciones' /></MenuItem>
+
 
             </SubMenu>
             <MenuItem>Reporte<Link to='/reporte' /></MenuItem>

@@ -1,19 +1,32 @@
-.Box{
-    height: 80vh;
+.Boxs{
+  position: relative;
+  left: 0%;
+    height: 90vh;
     background-color:rgb(185, 202, 223);
   
-    width: 100%;
-    .Box-DataGrid{
+   
+    width: 87%;
+    .Box-DataGrids{
       height: 90vh;
       background-color:rgb(252, 252, 252);
      
-      width: 100%;
+      width: 115%;
     }
   }
   
   
-  .Pr-Row{
+  .Pr-Rows{
     background-color: rgba(179, 194, 250, 0.2);
    
   }
+  .MuiDataGrid-colCellTitle {
+    display: block; 
+    text-align:center; 
+    width: 100%; 
+}
 
+.MuiDataGrid-cell {
+    display: block;
+    position: relative;
+    text-align: center;
+}

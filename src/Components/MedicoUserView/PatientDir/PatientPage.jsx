@@ -3,8 +3,8 @@ import { usePatient } from '../../../Hooks/usePatient'
 import { ModalBodyPacientes } from '../../../Styles For Components/ModalStyle'
 import { TablePatinent } from './TablePatinent';
 import IconButton from '@mui/material/IconButton';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import './PatientPageStyle.scss'
+import { IoIosAddCircleOutline } from "react-icons/io";
+import './PatientPageStyle.scss';
 
 
 
@@ -153,9 +153,9 @@ export const PatientPage = () => {
 
         <TablePatinent State={State} EditOrDeleteSelector={EditOrDeleteSelector} />
 
-        <IconButton  aria-label="add to shopping cart">
-          <AddCircleOutlineIcon sx={{ fontSize: 40 }} className="insertar" onClick={() => openCloseCreateModal()} />
-        </IconButton>
+
+          <IoIosAddCircleOutline className="insertar" onClick={() => openCloseCreateModal()} />
+
 
 
 

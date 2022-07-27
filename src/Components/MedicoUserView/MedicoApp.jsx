@@ -1,7 +1,7 @@
 
 import { Route, Routes, Navigate } from "react-router-dom"
 import { LoginPage } from "../Login/LoginPage"
-import { AtentionPage } from "../AdminUserView/AtentionDir/AtentionPage"
+import { AtentionPage } from "./AtentionDir/AtentionPage"
 import { PatientPage } from "./PatientDir/PatientPage"
 import { ReportPage } from "./ReportDir/ReportPage"
 

@@ -3,8 +3,6 @@ import { usePatient } from '../../../Hooks/usePatient'
 import { ModalBodyPacientes } from '../../../Styles For Components/ModalStyle'
 import { TableAtention } from './TableAtention';
 import './AtentionPage.scss';
-import { IoIosAddCircleOutline } from "react-icons/io"
-
 
 
 
@@ -152,8 +150,6 @@ export const AtentionPage = () => {
         <TableAtention State={State} EditOrDeleteSelector={EditOrDeleteSelector} />
 
 
-
-          <IoIosAddCircleOutline className="insertar"  onClick={() => openCloseCreateModal()} ></IoIosAddCircleOutline>
 
 
         <Modal open={CreateState}
