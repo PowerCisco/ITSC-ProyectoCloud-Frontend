@@ -1,28 +1,25 @@
 import { Button } from '@material-ui/core';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { useAtention } from '../../../Hooks/useAtention';
 import {
     DataGrid,  GridToolbarContainer,
     GridToolbarColumnsButton,
     GridToolbarFilterButton,
-    GridToolbarExport,
 } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
-import './TablePatient.scss';
+
+import './ViewAtentionPage.scss';
 
 
-
-
-export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
+export const ViewAtentionPage = () => {
     const [pageSize, setPageSize] = useState(10)
+    const {getAtention} = useAtention();
 
+    
     const customText = {
-        toolbarExportPrint: "Imprimir",
-        toolbarExportCSV: "Exportar Archivo .csv",
         toolbarColumns: "Columnas",
         toolbarFilters: "Filtros",
-        toolbarExport: "Exportar Data",
         columnsPanelTextFieldLabel: 'Buscar Columna',
         columnsPanelTextFieldPlaceholder: 'Titulo de Columna',
         columnsPanelDragIconLabel: 'Ordenar Titulo',
@@ -66,112 +63,90 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
         },
     });
     const columns = [
-        { field: 'pacienteId', headerName: 'ID', width: 60,
+        { field: 'atencionId', headerName: 'ID', width: 60,
         headerClassName: 'super-app-theme--header', },
         {
-            field: 'nombre',
-            headerName: 'Nombre',
+            field: 'diagnostico',
+            headerName: 'Diagnostico',
             headerClassName: 'super-app-theme--header',
 
-            width: 125,
+            width: 256,
             editable: false,
             headerAlign: 'center',
             
         },
         {
-            field: 'apellido',
-            headerName: 'Apellido',
-            width: 125,
+            field: 'tratamiento',
+            headerName: 'Tratamiento',
+            width: 250,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header',
         },
         {
-            field: 'fechaNacimiento',
-            headerName: 'Fecha De Nacimiento',
-            width: 120,
-            editable: false,
-            headerAlign: 'center',
-            headerClassName: 'super-app-theme--header'
-        },
-        {
-            field: 'tipoPaciente',
-            headerName: 'Tipo de Paciente',
+            field: 'fechaAtencion',
+            headerName: 'Fecha De Atencion',
             width: 200,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header'
         },
         {
-            field: 'carrera',
-            headerName: 'Carrera',
-            width: 150,
+            field: 'medicamentosIndicados',
+            headerName: 'Medicamentos Indicados',
+            width: 290,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header'
 
         },
         {
-            field: 'matricula',
-            headerName: 'Matricula',
+            field: 'pacienteId',
+            headerName: 'Paciente ID',
             width: 90,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header'
         },
         {
-            field: 'departamento',
-            headerName: 'Departamento',
+            field: 'medicoId',
+            headerName: 'Medico ID',
             width: 150,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header'
         },
-        {
-            field: 'telefono',
-            headerName: 'Telefono',
-            width: 150,
-            editable: false,
-            headerAlign: 'center',
-            headerClassName: 'super-app-theme--header'
-        },
-        {
-            field: 'sexo',
-            headerName: 'Sexo',
-            width: 100,
-            editable: false,
-            headerAlign: 'center',
-            headerClassName: 'super-app-theme--header'
-        },
-        {
-            field: "Editar",
-            headerName: "Editar",
-            sortable: false,
-            width: 90,
-            headerAlign: 'center',
-            headerClassName: 'super-app-theme--header',
-            renderCell: (params) => {
 
-                const data = params.row;
-                return  <ThemeProvider theme={theme}>
-                    <Button variant="contained" color = "primary"  onClick={() => EditOrDeleteSelector(data, "Editar")}>Editar</Button>
-                </ThemeProvider>
-            },
-        },
-        {
-            field: "Eliminar",
-            headerName: "Eliminar",
-            sortable: false,
-            headerAlign: 'center',
-            headerClassName: 'super-app-theme--header',
-            renderCell: (params) => {
+        // {
+        //     field: "Agregar Atencion",
+        //     headerName: "Agregar Atencion",
+        //     sortable: false,
+        //     width: 200,
+        //     headerAlign: 'center',
+        //     headerClassName: 'super-app-theme--header',
+        //     renderCell: (params) => {
 
-                const data = params.row;
-                return <ThemeProvider theme={theme}>
-                    <Button  variant="contained"  color="secondary" onClick={() => EditOrDeleteSelector(data, "Eliminar")}>Eliminar</Button>
-                    </ThemeProvider>
-                },
-        }
+        //         const data = params.row;
+        //         return  <ThemeProvider theme={theme}>
+        //             <Button variant="contained" color = "primary"  onClick={() => EditOrDeleteSelector(data, "Agregar")}>Agregar Atencion</Button>
+        //         </ThemeProvider>
+        //     },
+        // },
+        // {
+        //     field: "Editar",
+        //     headerName: "Editar",
+        //     sortable: false,
+        //     headerAlign: 'center',
+        //     width: 150,
+        //     headerClassName: 'super-app-theme--header',
+        //     renderCell: (params) => {
+
+        //         const data = params.row;
+        //         return <ThemeProvider theme={theme}>
+        //             <Button  variant="contained"  color="secondary" onClick={() => EditOrDeleteSelector(data, "Eliminar")}>Editar</Button>
+        //             </ThemeProvider>
+        //         },
+        // }
 
 
 
@@ -182,7 +157,6 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
     function CustomToolbar() {
         return (
             <GridToolbarContainer>
-
                 <GridToolbarColumnsButton />
                 <GridToolbarFilterButton />
             </GridToolbarContainer>
@@ -193,8 +167,10 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
 
     return (
         <>
-
-            <Box className='Box'
+            <br/>
+            <br/>
+            <br/>
+            <Box className='Box_view'
           sx={{
            
             '& .super-app-theme--header': {
@@ -206,15 +182,14 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
             >
             
                 <DataGrid
-                    className='Box-DataGrid'
-                    getRowId={(State) => State.pacienteId}
+                    className='Box-DataGrid_view'
+                    getRowId={(getAtention) => getAtention.atencionId}
 
-                    rows={State}
+                    rows={getAtention}
                     columns={columns}
                     checkboxSelection={false}
                     pageSize={pageSize}
                     onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-                    rowsPerPageOptions={[]}
                     pagination
                     localeText={customText}
                     components={{ Toolbar: CustomToolbar }}
@@ -227,6 +202,12 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
                           color: '#42A5F5',
 
                         },
+                        
+                        '.MuiDataGrid-cell':{
+                            display: 'block',
+                            position: 'relative',
+                            textAlign: 'center ',
+                        }
                        
                     }}
                 />

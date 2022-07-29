@@ -1,11 +1,11 @@
 import { Modal, Button, TextField, FormControlLabel, FormLabel, Radio, RadioGroup } from '@material-ui/core'
 import { usePatient } from '../../../Hooks/usePatient'
-import { ModalBodyPacientes } from '../../../Styles For Components/ModalStyle'
-import { TablePatinent } from './TablePatinent'
+import { ModalBodyPacientes } from '../../../Styles For Components/Patient/ModalStyle'
+import { TablePatinent } from './TablePatinent';
 import IconButton from '@mui/material/IconButton';
+import { IoIosAddCircleOutline } from "react-icons/io";
+import './PatientPageStyle.scss';
 
-import './PatientPageStyle.scss'
-import AddTask from '@mui/icons-material/AddTask'
 
 
 
@@ -75,8 +75,8 @@ export const PatientPage = () => {
 
 
       <div align="right">
-        <Button color="primary" onClick={() => PostPatient()}>Insertar</Button>
-        <Button onClick={() => openCloseCreateModal()}>Cancelar</Button>
+        <Button  onClick={() => PostPatient()}>Insertar</Button>
+        <Button  onClick={() => openCloseCreateModal()}>Cancelar</Button>
       </div>
     </div>
   )
@@ -154,10 +154,11 @@ export const PatientPage = () => {
         <TablePatinent State={State} EditOrDeleteSelector={EditOrDeleteSelector} />
 
 
-        <IconButton className="insertar" onClick={() => openCloseCreateModal()}>
-          <AddTask />
+          <IoIosAddCircleOutline className="insertar" onClick={() => openCloseCreateModal()} />
 
-        </IconButton>
+
+
+
 
         <Modal open={CreateState}
           onClose={openCloseCreateModal}
