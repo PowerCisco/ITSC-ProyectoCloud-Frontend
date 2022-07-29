@@ -1,6 +1,6 @@
 import { Modal, Button, TextField, FormControlLabel, FormLabel, Radio, RadioGroup } from '@material-ui/core'
 import { usePatient } from '../../../Hooks/usePatient'
-import { ModalBodyPacientes } from '../../../Styles For Components/ModalStyle'
+import { ModalBodyPacientes } from '../../../Styles For Components/Patient/ModalStyle'
 import { TablePatinent } from './TablePatinent';
 import IconButton from '@mui/material/IconButton';
 import { IoIosAddCircleOutline } from "react-icons/io";

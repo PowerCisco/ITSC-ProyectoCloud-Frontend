@@ -9,13 +9,14 @@ import {
 import Box from '@mui/material/Box';
 import { useState } from 'react';
 
-import './TableAtention.scss';
+import './ViewAtentionPage.scss';
 
 
-export const TableAtention = ({ State, EditOrDeleteSelector }) => {
+export const ViewAtentionPage = () => {
     const [pageSize, setPageSize] = useState(10)
- 
+    const {getAtention} = useAtention();
 
+    
     const customText = {
         toolbarColumns: "Columnas",
         toolbarFilters: "Filtros",
@@ -62,54 +63,54 @@ export const TableAtention = ({ State, EditOrDeleteSelector }) => {
         },
     });
     const columns = [
-        { field: 'pacienteId', headerName: 'ID', width: 60,
+        { field: 'atencionId', headerName: 'ID', width: 60,
         headerClassName: 'super-app-theme--header', },
         {
-            field: 'nombre',
-            headerName: 'Nombre',
+            field: 'diagnostico',
+            headerName: 'Diagnostico',
             headerClassName: 'super-app-theme--header',
 
-            width: 125,
+            width: 256,
             editable: false,
             headerAlign: 'center',
             
         },
         {
-            field: 'apellido',
-            headerName: 'Apellido',
-            width: 125,
+            field: 'tratamiento',
+            headerName: 'Tratamiento',
+            width: 250,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header',
         },
         {
-            field: 'tipoPaciente',
-            headerName: 'Tipo de Paciente',
+            field: 'fechaAtencion',
+            headerName: 'Fecha De Atencion',
             width: 200,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header'
         },
         {
-            field: 'carrera',
-            headerName: 'Carrera',
-            width: 200,
+            field: 'medicamentosIndicados',
+            headerName: 'Medicamentos Indicados',
+            width: 290,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header'
 
         },
         {
-            field: 'matricula',
-            headerName: 'Matricula',
+            field: 'pacienteId',
+            headerName: 'Paciente ID',
             width: 90,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header'
         },
         {
-            field: 'departamento',
-            headerName: 'Departamento',
+            field: 'medicoId',
+            headerName: 'Medico ID',
             width: 150,
             editable: false,
             headerAlign: 'center',
@@ -166,8 +167,10 @@ export const TableAtention = ({ State, EditOrDeleteSelector }) => {
 
     return (
         <>
-
-            <Box className='Boxs'
+            <br/>
+            <br/>
+            <br/>
+            <Box className='Box_view'
           sx={{
            
             '& .super-app-theme--header': {
@@ -179,10 +182,10 @@ export const TableAtention = ({ State, EditOrDeleteSelector }) => {
             >
             
                 <DataGrid
-                    className='Box-DataGrids'
-                    getRowId={(State) => State.pacienteId}
+                    className='Box-DataGrid_view'
+                    getRowId={(getAtention) => getAtention.atencionId}
 
-                    rows={State}
+                    rows={getAtention}
                     columns={columns}
                     checkboxSelection={false}
                     pageSize={pageSize}

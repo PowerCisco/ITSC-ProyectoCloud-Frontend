@@ -13,7 +13,7 @@ export const SidMenu = () => {
 
       <ProSidebar className="sidebar">
         <Menu iconShape="square">
-          <MenuItem  ><p className='sidebar-Title'>ISP</p></MenuItem>
+          <MenuItem  ><p className='sidebar-Title'>Registro de casos</p></MenuItem>
             <hr/>
             <SubMenu title="Pacientes">
             <IconContext.Provider value={{ color: "grey", size: "1.5em" }}  >
@@ -22,7 +22,7 @@ export const SidMenu = () => {
             </SubMenu>
 
             <SubMenu title="Atenciones">
-            <MenuItem icon={<BsEye/>}>Ver Atenciones <Link to='/medico/atenciones' /></MenuItem>
+            <MenuItem icon={<BsEye/>}>Ver Atenciones <Link to='/medico/atenciones_view' /></MenuItem>
             <MenuItem icon={<TbReportMedical/>}>Agregar Atenciones <Link to='/medico/atenciones' /></MenuItem>
 
 
