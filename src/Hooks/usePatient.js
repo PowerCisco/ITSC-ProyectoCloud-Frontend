@@ -52,9 +52,9 @@ export const usePatient = () => {
 
     }
     const PostPatient = async () => {
-
-        const { data } = await axios.post(url, Paciente).then();
-        setState(State.concat(data));
+        console.log(Paciente);
+        // const { data } = await axios.post(url, Paciente).then();
+        // setState(State.concat(data));
         openCloseCreateModal();
     }
 

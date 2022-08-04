@@ -11,46 +11,64 @@ const urlAtention = "https://itsc-proyectofinal.azurewebsites.net/atencion/";
 export const useAtention = () => {
     const [State, setState] = useState([]);
     const [getAtention, setAtention] = useState([]);
+    const [Data, setData] = useState([])
+    const [DateTime, setDateTime] = useState("")
+    const { openCloseCreateModal, setCreateState, CreateState, setEditState } = useModalController();
 
-    // const { openCloseCreateModal, setEditState, openCloseDeleteModal } = useModalController();
 
-     const {nombre,apellido } = State;
     const [Paciente, setPaciente] = useState({
         pacienteId: '',
-        nombre: '',
-        apellido: '',
-        fechaNacimiento: '',
-        carrera: '',
-        departamento: '',
-        sexo: '',
-        telefono: '',
-        tipoPaciente: ''
+        diagnostico: '',
+        tratamiento: '',
+        fechaAtencion: '',
+        medicamentosIndicados: '',
+        pacienteId: '',
+
     });
 
-    // const EditOrDeleteSelector = (data, caso) => {
+    const AddOrEditSelector = (data, caso) => {
+   
+        setPaciente(data);
+     
+        (caso === 'Agregar') ? openCloseCreateModal() : setEditState(true)
+        console.log("presionado boton:" + caso);
+    
+    }
+
+
+    const handleChange = ({ target }) => {
+        const { name, value } = target;
+        setPaciente(prevState => ({
+            ...prevState,
+            [name]: value
+        }))
+    }
+
+    const getDateTime = () => {
+
+        const MyDate = new Date();
+        let time = MyDate.getFullYear() + '-' + ('0' + (MyDate.getMonth() + 1)).slice(-2) + '-' + ('0' + MyDate.getDate()).slice(-2);
+        setDateTime(time);
+
+    }
+
+
+    const postAtention = async () => {
+        let date = {
+            fechaAtencion :DateTime
+        }
+        const medico = {
+            medicoId:1
+        }
+        let AssingDateToPaciente = Object.assign(Paciente,date,medico);
+        const {fechaNacimiento,sexo,matricula, carrera,tipoPaciente, departamento, ...UpdateObject} = AssingDateToPaciente;
+    
        
-    //     setPaciente(data);
-    //     (caso === 'Editar') ? setEditState(true) : openCloseDeleteModal();
+         const { data } = await axios.post(urlAtention, UpdateObject).then();
+         setState(State.concat(data));
+        openCloseCreateModal();
 
-    // }
-
-
-    // const handleChange = ({ target }) => {
-    //     const { name, value } = target;
-    //     setPaciente(prevState => ({
-    //         ...prevState,
-    //         [name]: value
-    //     }))
-    // }
-
-
-  
-    // const postAtention = async () => {
-
-    //     const { data } = await axios.post(urlAtencion, Paciente).then();
-    //     setState(State.concat(data));
-    //     openCloseCreateModal();
-    // }
+    }
 
     const getDataPatient = async () => {
         const { data } = await axios.get(urlPatient).then();
@@ -59,10 +77,11 @@ export const useAtention = () => {
     }
     const getDataAtention = async () => {
         const { data } = await axios.get(urlAtention).then();
-       
+
         setAtention(data)
     }
     useEffect(() => {
+
         getDataPatient();
         getDataAtention();
     }, [])
@@ -81,7 +100,7 @@ export const useAtention = () => {
     //                     dat.sexo = Paciente.sexo;
     //                     dat.telefono = Paciente.telefono;
     //                     dat.tipoPaciente = Paciente.tipoPaciente;
-                       
+
     //                 }
     //             })
     //             setState(dataNueva);
@@ -105,7 +124,16 @@ export const useAtention = () => {
 
     return {
         State,
-        getAtention
+        getAtention,
+        AddOrEditSelector,
+        CreateState,
+        setCreateState,
+        openCloseCreateModal,
+        Paciente,
+        handleChange,
+        postAtention,
+        getDateTime,
+        DateTime
     }
 
 
