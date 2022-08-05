@@ -78,7 +78,7 @@ export const ViewAtentionPage = () => {
         {
             field: 'tratamiento',
             headerName: 'Tratamiento',
-            width: 250,
+            width: 300,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header',

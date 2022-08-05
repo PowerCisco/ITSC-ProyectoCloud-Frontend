@@ -12,9 +12,9 @@ import { useState } from 'react';
 import './TableAtention.scss';
 
 
-export const TableAtention = ({ State, EditOrDeleteSelector }) => {
+export const TableAtention = ({ State,AddOrEditSelector }) => {
     const [pageSize, setPageSize] = useState(10)
- 
+  
 
     const customText = {
         toolbarColumns: "Columnas",
@@ -116,21 +116,21 @@ export const TableAtention = ({ State, EditOrDeleteSelector }) => {
             headerClassName: 'super-app-theme--header'
         },
 
-        // {
-        //     field: "Agregar Atencion",
-        //     headerName: "Agregar Atencion",
-        //     sortable: false,
-        //     width: 200,
-        //     headerAlign: 'center',
-        //     headerClassName: 'super-app-theme--header',
-        //     renderCell: (params) => {
+        {
+            field: "Agregar Atencion",
+            headerName: "Agregar Atencion",
+            sortable: false,
+            width: 200,
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header',
+            renderCell: (params) => {
 
-        //         const data = params.row;
-        //         return  <ThemeProvider theme={theme}>
-        //             <Button variant="contained" color = "primary"  onClick={() => EditOrDeleteSelector(data, "Agregar")}>Agregar Atencion</Button>
-        //         </ThemeProvider>
-        //     },
-        // },
+                const data = params.row;
+                return  <ThemeProvider theme={theme}>
+                    <Button variant="contained" color = "primary"  onClick={() =>AddOrEditSelector(data, "Agregar")}>Agregar Atencion</Button>
+                </ThemeProvider>
+            },
+        },
         // {
         //     field: "Editar",
         //     headerName: "Editar",
