@@ -11,9 +11,8 @@ const urlAtention = "https://itsc-proyectofinal.azurewebsites.net/atencion/";
 export const useAtention = () => {
     const [State, setState] = useState([]);
     const [getAtention, setAtention] = useState([]);
-    const [Data, setData] = useState([])
     const [DateTime, setDateTime] = useState("")
-    const { openCloseCreateModal, setCreateState, CreateState, setEditState } = useModalController();
+    const { openCloseCreateModal, setCreateState, CreateState, setEditState, openCloseEditModal} = useModalController();
 
 
     const [Paciente, setPaciente] = useState({
@@ -62,10 +61,12 @@ export const useAtention = () => {
         }
         let AssingDateToPaciente = Object.assign(Paciente,date,medico);
         const {fechaNacimiento,sexo,matricula, carrera,tipoPaciente, departamento, ...UpdateObject} = AssingDateToPaciente;
-    
+        
        
          const { data } = await axios.post(urlAtention, UpdateObject).then();
-         setState(State.concat(data));
+
+         setAtention(getAtention.concat(data))
+        
         openCloseCreateModal();
 
     }
@@ -133,7 +134,8 @@ export const useAtention = () => {
         handleChange,
         postAtention,
         getDateTime,
-        DateTime
+        DateTime,
+        openCloseEditModal
     }
 
 

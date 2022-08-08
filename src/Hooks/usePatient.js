@@ -12,16 +12,18 @@ export const usePatient = () => {
     const { openCloseCreateModal,
         CreateState,
         openCloseEditModal,
-        EditState, setEditState, openCloseDeleteModal, DeleteState } = useModalController();
+        EditState, setEditState } = useModalController();
 
 
     const [Paciente, setPaciente] = useState({
+
         nombre: '',
         apellido: '',
         fechaNacimiento: '',
         carrera: '',
         departamento: '',
         sexo: '',
+        matricula: '',
         telefono: '',
         tipoPaciente: ''
     });
@@ -43,18 +45,10 @@ export const usePatient = () => {
     }
 
 
-    const DeletePatient = async () => {
-
-        await axios.delete(url + Paciente.pacienteId).then(response => {
-            setState(State.filter(datas => datas.pacienteId !== Paciente.pacienteId))
-        })
-        openCloseDeleteModal();
-
-    }
     const PostPatient = async () => {
         console.log(Paciente);
-        // const { data } = await axios.post(url, Paciente).then();
-        // setState(State.concat(data));
+        const { data } = await axios.post(url, Paciente).then();
+        setState(State.concat(data));
         openCloseCreateModal();
     }
 
@@ -76,6 +70,7 @@ export const usePatient = () => {
                         dat.apellido = Paciente.apellido;
                         dat.fechaNacimiento = Paciente.fechaNacimiento;
                         dat.carrera = Paciente.carrera;
+                        dat.matricula = Paciente.matricula;
                         dat.departamento = Paciente.departamento;
                         dat.sexo = Paciente.sexo;
                         dat.telefono = Paciente.telefono;
@@ -86,12 +81,14 @@ export const usePatient = () => {
                 setState(dataNueva);
                 openCloseEditModal();
             })
+
         setPaciente({
             nombre: '',
             apellido: '',
             fechaNacimiento: '',
             carrera: '',
             departamento: '',
+            matricula: '',
             sexo: '',
             telefono: '',
             tipoPaciente: ''
@@ -110,10 +107,8 @@ export const usePatient = () => {
         EditState,
         handleChange,
         Paciente,
-        EditOrDeleteSelector,
-        DeletePatient,
-        openCloseDeleteModal, DeleteState,
-        PutPatient
+        PutPatient,
+        EditOrDeleteSelector
     }
 
 

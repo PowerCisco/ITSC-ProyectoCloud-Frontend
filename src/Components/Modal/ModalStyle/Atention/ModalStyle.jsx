@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export const ModalBodyPacientes = () => {
+export const ModalBodyAtention= () => {
   const styles = useStyles();
 
 
