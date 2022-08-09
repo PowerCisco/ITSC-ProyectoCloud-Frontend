@@ -27,9 +27,7 @@ export const GridAtention = (AddOrEditSelector) => {
         filterOperatorIsEmpty: 'Esta vacio',
         filterOperatorIsNotEmpty: 'No esta vacio',
         filterOperatorIsAnyOf: 'Contiene alguna cosa de',
-        // Column menu text
         columnMenuLabel: 'Menu',
-        columnMenuShowColumns: 'Show columns',
         columnMenuFilter: 'Filtro',
         columnMenuHideColumn: 'Ocultar',
         columnMenuUnsort: 'Desordenar',
@@ -44,7 +42,6 @@ export const GridAtention = (AddOrEditSelector) => {
                 main: '#64B5F6',
             },
             secondary: {
-                // This is green.A700 as hex.
                 main: '#11cb5f',
             },
         },
@@ -57,7 +54,7 @@ export const GridAtention = (AddOrEditSelector) => {
             headerName: 'Nombre',
             headerClassName: 'super-app-theme--header',
 
-            width: 125,
+            width: 137,
             editable: false,
             headerAlign: 'center',
             
@@ -65,7 +62,7 @@ export const GridAtention = (AddOrEditSelector) => {
         {
             field: 'apellido',
             headerName: 'Apellido',
-            width: 125,
+            width: 150,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header',
@@ -90,7 +87,7 @@ export const GridAtention = (AddOrEditSelector) => {
         {
             field: 'matricula',
             headerName: 'Matricula',
-            width: 90,
+            width: 100,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header'
@@ -98,7 +95,7 @@ export const GridAtention = (AddOrEditSelector) => {
         {
             field: 'departamento',
             headerName: 'Departamento',
-            width: 150,
+            width: 200,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header'
@@ -108,7 +105,7 @@ export const GridAtention = (AddOrEditSelector) => {
             field: "Agregar Atencion",
             headerName: "Agregar Atencion",
             sortable: false,
-            width: 200,
+            width: 250,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header',
             renderCell: (params) => {
@@ -119,21 +116,7 @@ export const GridAtention = (AddOrEditSelector) => {
                 </ThemeProvider>
             },
         },
-        // {
-        //     field: "Editar",
-        //     headerName: "Editar",
-        //     sortable: false,
-        //     headerAlign: 'center',
-        //     width: 150,
-        //     headerClassName: 'super-app-theme--header',
-        //     renderCell: (params) => {
-
-        //         const data = params.row;
-        //         return <ThemeProvider theme={theme}>
-        //             <Button  variant="contained"  color="secondary" onClick={() => EditOrDeleteSelector(data, "Eliminar")}>Editar</Button>
-        //             </ThemeProvider>
-        //         },
-        // }
+        
 
 
 

@@ -73,13 +73,17 @@ export const useAtention = () => {
 
     const getDataPatient = async () => {
         const { data } = await axios.get(urlPatient).then();
-
+  
         setState(data);
     }
     const getDataAtention = async () => {
         const { data } = await axios.get(urlAtention).then();
-
-        setAtention(data)
+        const newData = data.map((oldData)=>{
+            let newDate = (oldData.fechaAtencion).slice(0,10);
+            oldData.fechaAtencion=newDate;
+            return oldData
+        })
+        setAtention(newData)
     }
     useEffect(() => {
 

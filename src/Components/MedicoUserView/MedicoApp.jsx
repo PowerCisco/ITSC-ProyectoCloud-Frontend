@@ -23,7 +23,7 @@ export const MedicoApp = () => {
                 <Route path='/medico/mantenimiento_paciente' element={<PatientPage />} />
                 <Route path='/medico/reporte' element={<ReportPage />} />
                 <Route path='/medico/atenciones' element={<AtentionPage />} />
-                <Route path='/medico/atenciones_view' element={<ViewAtentionPage />} />
+                <Route path='/medico/atenciones_edit' element={<ViewAtentionPage />} />
                 
         
                 

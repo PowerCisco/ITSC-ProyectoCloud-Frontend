@@ -1,4 +1,7 @@
-export const ViewBodyAtention = () => {
+import { Button } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+export const ViewBodyAtention = (AddOrEditSelector) => {
 
     
     const customText = {
@@ -34,7 +37,17 @@ export const ViewBodyAtention = () => {
         columnMenuSortDesc: 'Ordenar por DESC',
     }
 
+    const theme = createTheme({
+        palette: {
+            primary: {
 
+                main: '#64B5F6',
+            },
+            secondary: {
+                main: '#11cb5f',
+            },
+        },
+    });
     const columns = [
         { field: 'atencionId', headerName: 'ID', width: 60,
         headerClassName: 'super-app-theme--header', },
@@ -84,13 +97,27 @@ export const ViewBodyAtention = () => {
         {
             field: 'medicoId',
             headerName: 'Medico ID',
-            width: 150,
+            width: 100,
             editable: false,
             headerAlign: 'center',
             headerClassName: 'super-app-theme--header'
         },
 
+{
+            field: "Editar",
+            headerName: "Editar",
+            sortable: false,
+            headerAlign: 'center',
+            width: 150,
+            headerClassName: 'super-app-theme--header',
+            renderCell: (params) => {
 
+                const data = params.row;
+                return <ThemeProvider theme={theme}>
+                    <Button  variant="contained"  color="secondary" onClick={() => AddOrEditSelector(data, "Editar")}>Editar</Button>
+                    </ThemeProvider>
+                },
+        }
 
 
 

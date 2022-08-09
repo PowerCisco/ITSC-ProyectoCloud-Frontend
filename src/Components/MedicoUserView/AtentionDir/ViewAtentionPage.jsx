@@ -7,9 +7,8 @@ import './ViewAtentionPage.scss';
 import { Box } from '@mui/material';
 
 
-export const ViewAtentionPage = () => {
+export const ViewAtentionPage = ({getAtention}) => {
     const [pageSize, setPageSize] = useState(10)
-    const {getAtention} = useAtention();
     const {customText,  columns} = ViewBodyAtention();
     
     function CustomToolbar() {

@@ -1,9 +1,10 @@
-import React from 'react';
 import { Button, TextField, FormControlLabel, FormLabel, Radio, RadioGroup } from '@material-ui/core';
 import { ModalBodyPacientes } from '../../ModalStyle/Patient/ModalStyle';
 
+
 export const BodyPatient = ( PostPatient, PutPatient, handleChange, Paciente,openCloseCreateModal,openCloseEditModal) => {
 
+    
     const { styles } = ModalBodyPacientes();
     const bodyInsertar = (
         <div className={styles.modal}>

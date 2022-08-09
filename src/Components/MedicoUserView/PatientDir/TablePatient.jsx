@@ -29,8 +29,10 @@ export const TablePatinent = ({ State, EditOrDeleteSelector }) => {
            
             '& .super-app-theme--header': {
               backgroundColor: '#90CAF980',
+              fontFamily: "sans-serif",
                 fontSize: '16px',
-                fontWeight: 900
+                fontWeight: 'bold',
+              
             },
           }}
             >

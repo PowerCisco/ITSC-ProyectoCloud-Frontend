@@ -4,7 +4,7 @@ import { TablePatinent } from './TablePatient';
 import { IoIosAddCircleOutline } from "react-icons/io";
 import './PatientPageStyle.scss';
 import { BodyPatient } from '../../Modal/ModalBody/Patient/BodyPatient';
-
+import { SucessSnackbars,InfoSnackbars } from '../../Snackbar/SnackBar';
 
 
 
@@ -12,19 +12,13 @@ import { BodyPatient } from '../../Modal/ModalBody/Patient/BodyPatient';
 
 export const PatientPage = () => {
 
-  const { State,
-    PostPatient,
-    PutPatient,
-    handleChange,
-    Paciente,
-    openCloseCreateModal,
-    CreateState,
-    openCloseEditModal,
+  const { State, PostPatient,  PutPatient, handleChange,  Paciente,  openCloseCreateModal,  CreateState,  openCloseEditModal,
     EditOrDeleteSelector,
-    EditState,
+    EditState,Open,
+    setOpen, AlertEdit,
+    setAlertEdit
   } = usePatient();
   const { bodyEditar,  bodyInsertar} = BodyPatient ( PostPatient, PutPatient, handleChange, Paciente,openCloseCreateModal,openCloseEditModal)
-
 
 
 
@@ -41,10 +35,9 @@ export const PatientPage = () => {
 
 
           <IoIosAddCircleOutline className="insertar" onClick={() => openCloseCreateModal()} />
-
-
-
-
+          
+          <SucessSnackbars setOpen={setOpen}Open={Open}/>
+          <InfoSnackbars AlertEdit={AlertEdit} setAlertEdit={setAlertEdit}/>
 
         <Modal open={CreateState}
           onClose={openCloseCreateModal}

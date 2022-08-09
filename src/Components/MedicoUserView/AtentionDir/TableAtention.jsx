@@ -8,8 +8,7 @@ import './TableAtention.scss';
 export const TableAtention = ({ State,AddOrEditSelector }) => {
     const [pageSize, setPageSize] = useState(10)
   
-const { customText,
- columns} = GridAtention(AddOrEditSelector);
+const { customText, columns} = GridAtention(AddOrEditSelector);
 
 
     function CustomToolbar() {

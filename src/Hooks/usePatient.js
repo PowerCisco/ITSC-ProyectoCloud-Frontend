@@ -5,16 +5,21 @@ import { useModalController } from './useModalController';
 
 const url = "https://itsc-proyectofinal.azurewebsites.net/paciente/";
 
+  
+
 
 
 export const usePatient = () => {
     const [State, setState] = useState([]);
+    const [Open, setOpen] = useState(false);
+    const [AlertEdit, setAlertEdit] = useState(false);
+    
     const { openCloseCreateModal,
         CreateState,
         openCloseEditModal,
         EditState, setEditState } = useModalController();
 
-
+    
     const [Paciente, setPaciente] = useState({
 
         nombre: '',
@@ -28,8 +33,9 @@ export const usePatient = () => {
         tipoPaciente: ''
     });
 
+   
     const EditOrDeleteSelector = (data, caso) => {
-       
+
         setPaciente(data);
         (caso === 'Editar') ? setEditState(true) : openCloseDeleteModal();
 
@@ -46,15 +52,26 @@ export const usePatient = () => {
 
 
     const PostPatient = async () => {
-        console.log(Paciente);
+  
         const { data } = await axios.post(url, Paciente).then();
         setState(State.concat(data));
+     
         openCloseCreateModal();
+        setOpen(true);
+        
     }
 
     const getData = async () => {
         const { data } = await axios.get(url).then();
-        setState(data)
+       const newdata =  data.map((solofecha)=>{
+        let data = (solofecha.fechaNacimiento).slice(0,10);
+            solofecha.fechaNacimiento = data;
+         return  solofecha;
+            
+        })
+      
+
+        setState(newdata)
     }
     useEffect(() => {
         getData();
@@ -75,11 +92,14 @@ export const usePatient = () => {
                         dat.sexo = Paciente.sexo;
                         dat.telefono = Paciente.telefono;
                         dat.tipoPaciente = Paciente.tipoPaciente;
-                       
+
                     }
                 })
                 setState(dataNueva);
                 openCloseEditModal();
+           
+                setAlertEdit(true);
+               
             })
 
         setPaciente({
@@ -108,7 +128,15 @@ export const usePatient = () => {
         handleChange,
         Paciente,
         PutPatient,
-        EditOrDeleteSelector
+        EditOrDeleteSelector,
+
+        Open,
+        setOpen,
+        
+        AlertEdit,
+        setAlertEdit
+
+
     }
 
 

@@ -1,9 +1,19 @@
+$sidebar-bg-color: linear-gradient(rgb(198, 227, 251),rgb(33, 150, 233))!default;
+$sidebar-color: #757575 !default;
+$sidebar-width: 270px !default;
+$sidebar-collapsed-width: 80px !default;
+$highlight-color: rgb(73, 103, 249) !default;
+$submenu-bg-color: #c3e3f8 !default;
+$submenu-bg-color-collapsed: #87d1f6 !default;
+$icon-bg-color: #1bc6e0 !default;
+
+@import 'react-pro-sidebar/dist/scss/styles.scss';
+
 
 
 .navbar{
     width: 300px;
     height: 300px;
-    background-color: rgb(236, 0, 0);
     
 }
 
@@ -13,7 +23,6 @@
 }
 .sidebar{
     position: absolute;
-    background-color: rgb(184, 46, 46) !important;
     .sidebar-Title{
         left: 19%;
         position: relative;
@@ -29,11 +38,14 @@
 
 }
 
+.clock{
+    position: relative;
+    left: 30%;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #757575;
 
-
-
-
-
+}
 
 
 

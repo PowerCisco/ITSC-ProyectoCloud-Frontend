@@ -1,26 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
-  modalEliminar: {
-    position: 'absolute',
-    width: 200,
-    height: 200,
-    backgroundColor: theme.palette.background.paper,
-    border: '1px solid #000',
-    boxShadow: theme.shadows[9],
-    padding: theme.spacing(2, 4, 3),
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    borderRadius: '5%'
-  },
+
   modal: {
     position: 'absolute',
     display: 'flex',
     flexDirection: 'column',
     width: 500,
     height: 750,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor:  theme.palette.background.paper,
     border: '2px solid #90CAF9',
     boxShadow: theme.shadows[9],
     padding: theme.spacing(2, 4, 3),
@@ -34,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   inputMaterial: {
     marginBottom: '0px',
+    fontFamily:'sans-serif'
   },
 
   cajaDiagnostico: {
@@ -69,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 150, maxHeight: 100, minHeight:100, outline: 'none', padding: '2px',
     marginLeft: "130px"
 
+  },
+  titles:{
+    fontFamily:'sans-serif'
   }
 }));
 
