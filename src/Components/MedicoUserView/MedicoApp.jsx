@@ -1,36 +1,54 @@
 
-import { Route, Routes, Navigate } from "react-router-dom"
-import { LoginPage } from "../Login/LoginPage"
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { AtentionPage } from "./AtentionDir/AtentionPage"
 import { PatientPage } from "./PatientDir/PatientPage"
 import { ReportPage } from "./ReportDir/ReportPage"
 import { NotFound } from "../Not Found Page/NotFound"
-import { SidMenu } from "../Sidemenu/SidMenu"
-import { ViewAtentionPage } from "./AtentionDir/ViewAtentionPage"
+import { CustomNavigationClient } from "../../Auth/NavigationClient";
+import { MsalProvider } from "@azure/msal-react";
+import { PageLayout } from "../Login/PageLayout";
+import { EditAtentionPage } from "./AtentionDir/EditAtentionPage";
+import { Home } from "../Principal Page/Home"
 
 
-export const MedicoApp = () => {
+export const MedicoApp = ({ pca }) => {
 
+    const history = useNavigate();
+    const navigationClient = new CustomNavigationClient(history);
+    pca.setNavigationClient(navigationClient);
 
     return (
-        <>
-            <SidMenu />
+        <MsalProvider instance={pca}>
+            <PageLayout>
+              
+                    <Pages />
+            
+            </PageLayout>
+        </MsalProvider>
+    );
+}
 
-            <Routes>
-                <Route path='/' element={<LoginPage />} />
 
-                {/* Rutas del medico */}
-                <Route path='/medico/mantenimiento_paciente' element={<PatientPage />} />
-                <Route path='/medico/reporte' element={<ReportPage />} />
-                <Route path='/medico/atenciones' element={<AtentionPage />} />
-                <Route path='/medico/atenciones_edit' element={<ViewAtentionPage />} />
-                
-        
-                
-                <Route path='/error' element={<NotFound />} />
-                <Route path='/*' element={<Navigate to="error" />} />
 
-            </Routes>
-        </>
+
+function Pages() {
+
+    return (
+        <Routes>
+            <Route path='/' element={<Home/>}/>
+
+            <Route path='/medico/mantenimiento_paciente' element={<PatientPage />} />
+            <Route path='/medico/reporte' element={<ReportPage />} />
+            <Route path='/medico/atenciones' element={<AtentionPage />} />
+            <Route path='/medico/atenciones_edit' element={<EditAtentionPage />} />
+
+
+
+            <Route path='/error' element={<NotFound />} />
+            <Route path='/*' element={<Navigate to="error" />} />
+
+        </Routes>
     )
 }
+
+

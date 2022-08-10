@@ -11,8 +11,8 @@ const urlAtention = "https://itsc-proyectofinal.azurewebsites.net/atencion/";
 export const useAtention = () => {
     const [State, setState] = useState([]);
     const [getAtention, setAtention] = useState([]);
-    const [DateTime, setDateTime] = useState("")
-    const { openCloseCreateModal, setCreateState, CreateState, setEditState, openCloseEditModal} = useModalController();
+    const [DateTime, setDateTime] = useState("");
+    const { openCloseCreateModal, setCreateState, CreateState, setEditState, openCloseEditModal,EditState} = useModalController();
 
 
     const [Paciente, setPaciente] = useState({
@@ -84,45 +84,47 @@ export const useAtention = () => {
             return oldData
         })
         setAtention(newData)
+   
     }
     useEffect(() => {
 
         getDataPatient();
         getDataAtention();
+        console.log(getAtention);
     }, [])
 
-    // const PutPatient = async () => {
-    //     await axios.put(url + Paciente.pacienteId, Paciente)
-    //         .then(response => {
-    //             var dataNueva = State;
-    //             dataNueva.map(dat => {
-    //                 if (Paciente.pacienteId === dat.pacienteId) {
-    //                     dat.nombre = Paciente.nombre;
-    //                     dat.apellido = Paciente.apellido;
-    //                     dat.fechaNacimiento = Paciente.fechaNacimiento;
-    //                     dat.carrera = Paciente.carrera;
-    //                     dat.departamento = Paciente.departamento;
-    //                     dat.sexo = Paciente.sexo;
-    //                     dat.telefono = Paciente.telefono;
-    //                     dat.tipoPaciente = Paciente.tipoPaciente;
+    const PutAtention = async () => {
+        await axios.put(url + Paciente.pacienteId, Paciente)
+            .then(response => {
+                var dataNueva = State;
+                dataNueva.map(dat => {
+                    if (Paciente.pacienteId === dat.pacienteId) {
+                        dat.nombre = Paciente.nombre;
+                        dat.apellido = Paciente.apellido;
+                        dat.fechaNacimiento = Paciente.fechaNacimiento;
+                        dat.carrera = Paciente.carrera;
+                        dat.departamento = Paciente.departamento;
+                        dat.sexo = Paciente.sexo;
+                        dat.telefono = Paciente.telefono;
+                        dat.tipoPaciente = Paciente.tipoPaciente;
 
-    //                 }
-    //             })
-    //             setState(dataNueva);
-    //             openCloseEditModal();
-    //         })
-    //     setPaciente({
-    //         pacienteId: '',
-    //         nombre: '',
-    //         apellido: '',
-    //         fechaNacimiento: '',
-    //         carrera: '',
-    //         departamento: '',
-    //         sexo: '',
-    //         telefono: '',
-    //         tipoPaciente: ''
-    //     });
-    // }
+                    }
+                })
+                setState(dataNueva);
+                openCloseEditModal();
+            })
+        setPaciente({
+            pacienteId: '',
+            nombre: '',
+            apellido: '',
+            fechaNacimiento: '',
+            carrera: '',
+            departamento: '',
+            sexo: '',
+            telefono: '',
+            tipoPaciente: ''
+        });
+    }
 
 
 
@@ -139,7 +141,9 @@ export const useAtention = () => {
         postAtention,
         getDateTime,
         DateTime,
-        openCloseEditModal
+        openCloseEditModal,
+        EditState,
+        PutAtention
     }
 
 

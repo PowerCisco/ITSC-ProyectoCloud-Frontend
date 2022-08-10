@@ -3,13 +3,13 @@ import { Modal } from '@material-ui/core'
 import { useAtention } from '../../../Hooks/useAtention'
 import { BodyAtention } from '../../Modal/ModalBody/Atention/BodyAtention';
 import { ViewAtentionPage } from './ViewAtentionPage';
-import './AtentionPage.scss';
+import './EditAtentionPage.scss';
 
 
 
-export const AtentionPage = () => {
-  const { CreateState, openCloseCreateModal, Paciente, handleChange, AddOrEditSelector, getDateTime, DateTime, getAtention } = useAtention();
-  const { bodyEdit } = BodyAtention(Paciente, handleChange, DateTime,getAtention, putAtention, openCloseEditModal);
+export const EditAtentionPage = () => {
+  const {  openCloseEditModal, Paciente, handleChange, AddOrEditSelector, getDateTime, DateTime, getAtention,EditState,PutAtention} = useAtention();
+  const { bodyEdit } = BodyAtention(Paciente, handleChange, DateTime,getAtention, PutAtention, openCloseEditModal);
   useEffect(() => {
     getDateTime();
 
@@ -19,7 +19,7 @@ export const AtentionPage = () => {
   return (
     <>
 
-      <div className='App content-edit'>
+      <div className='Apps content-edit'>
         <br />
 
         <br /> <br />
@@ -28,8 +28,8 @@ export const AtentionPage = () => {
 
 
 
-        <Modal open={CreateState}
-          onClose={openCloseCreateModal}
+        <Modal open={EditState}
+          onClose={openCloseEditModal}
         >
           {bodyEdit}
         </Modal>

@@ -1,5 +1,4 @@
 
-import { useAtention } from '../../../Hooks/useAtention';
 import { DataGrid,  GridToolbarContainer, GridToolbarColumnsButton, GridToolbarFilterButton} from '@mui/x-data-grid';
 import { ViewBodyAtention } from '../../Modal/ModalBody/Atention/ViewBodyAtention';
 import { useState } from 'react';
@@ -7,9 +6,9 @@ import './ViewAtentionPage.scss';
 import { Box } from '@mui/material';
 
 
-export const ViewAtentionPage = ({getAtention}) => {
+export const ViewAtentionPage = ({getAtention,AddOrEditSelector}) => {
     const [pageSize, setPageSize] = useState(10)
-    const {customText,  columns} = ViewBodyAtention();
+    const {customText,  columns} = ViewBodyAtention(AddOrEditSelector);
     
     function CustomToolbar() {
         return (
