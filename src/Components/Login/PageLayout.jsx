@@ -7,13 +7,13 @@ export const PageLayout = (props) => {
         <>
 
 
-    
+
             <NavBar />
 
-        
+
             <AuthenticatedTemplate>
-            <SignInSignOutButton />
-               </AuthenticatedTemplate>
+                <SignInSignOutButton />
+            </AuthenticatedTemplate>
 
             {props.children}
         </>
