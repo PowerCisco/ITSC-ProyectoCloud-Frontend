@@ -31,7 +31,7 @@ export const NavBarComponents = () => {
   if (name) {
     return (
       <>
-  
+
         <p className='clock'>
           {dateState.toLocaleString('en-US', {
             hour: 'numeric',
