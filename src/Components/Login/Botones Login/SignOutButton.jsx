@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useMsal } from "@azure/msal-react";
 import IconButton from '@material-ui/core/IconButton';
-import { MdOutlineAccountCircle } from "react-icons/md";
-import Button from '@mui/material/Button';
+import { CgLogOut } from "react-icons/Cg";
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { AccountPicker } from "../AccountPicker";
+import './SignOutButton.scss';
 
 export const SignOutButton = () => {
     const { instance } = useMsal();
@@ -30,12 +30,13 @@ export const SignOutButton = () => {
     };
 
     return (
-        <div>
+        <div className="icons">
             <IconButton
                 onClick={(event) => setAnchorEl(event.currentTarget)}
                 color="inherit"
+                className="iconWrapper"
             >
-                <MdOutlineAccountCircle />
+                <CgLogOut className="icon"/>
             </IconButton>
             <Menu
                 id="menu-appbar"
