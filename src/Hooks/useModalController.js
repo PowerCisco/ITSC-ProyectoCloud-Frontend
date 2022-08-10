@@ -4,11 +4,8 @@ export const useModalController = () => {
 
 const [CreateState, setCreateState] = useState(false);
 const [EditState, setEditState] = useState(false);
-const [DeleteState, setDeleteState] = useState(false);
 
-const openCloseDeleteModal = ()=>{
-  setDeleteState(!DeleteState);
-}
+
   const openCloseCreateModal =()=>{
     setCreateState(!CreateState);
   }
@@ -26,8 +23,5 @@ const openCloseDeleteModal = ()=>{
         openCloseEditModal,
         EditState,
         setEditState,
-
-        openCloseDeleteModal,
-        DeleteState
   }
 }

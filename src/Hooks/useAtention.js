@@ -11,9 +11,8 @@ const urlAtention = "https://itsc-proyectofinal.azurewebsites.net/atencion/";
 export const useAtention = () => {
     const [State, setState] = useState([]);
     const [getAtention, setAtention] = useState([]);
-    const [Data, setData] = useState([])
-    const [DateTime, setDateTime] = useState("")
-    const { openCloseCreateModal, setCreateState, CreateState, setEditState } = useModalController();
+    const [DateTime, setDateTime] = useState("");
+    const { openCloseCreateModal, setCreateState, CreateState, setEditState, openCloseEditModal,EditState} = useModalController();
 
 
     const [Paciente, setPaciente] = useState({
@@ -62,62 +61,70 @@ export const useAtention = () => {
         }
         let AssingDateToPaciente = Object.assign(Paciente,date,medico);
         const {fechaNacimiento,sexo,matricula, carrera,tipoPaciente, departamento, ...UpdateObject} = AssingDateToPaciente;
-    
+        
        
          const { data } = await axios.post(urlAtention, UpdateObject).then();
-         setState(State.concat(data));
+
+         setAtention(getAtention.concat(data))
+        
         openCloseCreateModal();
 
     }
 
     const getDataPatient = async () => {
         const { data } = await axios.get(urlPatient).then();
-
+  
         setState(data);
     }
     const getDataAtention = async () => {
         const { data } = await axios.get(urlAtention).then();
-
-        setAtention(data)
+        const newData = data.map((oldData)=>{
+            let newDate = (oldData.fechaAtencion).slice(0,10);
+            oldData.fechaAtencion=newDate;
+            return oldData
+        })
+        setAtention(newData)
+   
     }
     useEffect(() => {
 
         getDataPatient();
         getDataAtention();
+        console.log(getAtention);
     }, [])
 
-    // const PutPatient = async () => {
-    //     await axios.put(url + Paciente.pacienteId, Paciente)
-    //         .then(response => {
-    //             var dataNueva = State;
-    //             dataNueva.map(dat => {
-    //                 if (Paciente.pacienteId === dat.pacienteId) {
-    //                     dat.nombre = Paciente.nombre;
-    //                     dat.apellido = Paciente.apellido;
-    //                     dat.fechaNacimiento = Paciente.fechaNacimiento;
-    //                     dat.carrera = Paciente.carrera;
-    //                     dat.departamento = Paciente.departamento;
-    //                     dat.sexo = Paciente.sexo;
-    //                     dat.telefono = Paciente.telefono;
-    //                     dat.tipoPaciente = Paciente.tipoPaciente;
+    const PutAtention = async () => {
+        await axios.put(url + Paciente.pacienteId, Paciente)
+            .then(response => {
+                var dataNueva = State;
+                dataNueva.map(dat => {
+                    if (Paciente.pacienteId === dat.pacienteId) {
+                        dat.nombre = Paciente.nombre;
+                        dat.apellido = Paciente.apellido;
+                        dat.fechaNacimiento = Paciente.fechaNacimiento;
+                        dat.carrera = Paciente.carrera;
+                        dat.departamento = Paciente.departamento;
+                        dat.sexo = Paciente.sexo;
+                        dat.telefono = Paciente.telefono;
+                        dat.tipoPaciente = Paciente.tipoPaciente;
 
-    //                 }
-    //             })
-    //             setState(dataNueva);
-    //             openCloseEditModal();
-    //         })
-    //     setPaciente({
-    //         pacienteId: '',
-    //         nombre: '',
-    //         apellido: '',
-    //         fechaNacimiento: '',
-    //         carrera: '',
-    //         departamento: '',
-    //         sexo: '',
-    //         telefono: '',
-    //         tipoPaciente: ''
-    //     });
-    // }
+                    }
+                })
+                setState(dataNueva);
+                openCloseEditModal();
+            })
+        setPaciente({
+            pacienteId: '',
+            nombre: '',
+            apellido: '',
+            fechaNacimiento: '',
+            carrera: '',
+            departamento: '',
+            sexo: '',
+            telefono: '',
+            tipoPaciente: ''
+        });
+    }
 
 
 
@@ -133,7 +140,10 @@ export const useAtention = () => {
         handleChange,
         postAtention,
         getDateTime,
-        DateTime
+        DateTime,
+        openCloseEditModal,
+        EditState,
+        PutAtention
     }
 
 

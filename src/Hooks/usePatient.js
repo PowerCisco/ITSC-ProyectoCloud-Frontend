@@ -5,29 +5,37 @@ import { useModalController } from './useModalController';
 
 const url = "https://itsc-proyectofinal.azurewebsites.net/paciente/";
 
+  
+
 
 
 export const usePatient = () => {
     const [State, setState] = useState([]);
+    const [Open, setOpen] = useState(false);
+    const [AlertEdit, setAlertEdit] = useState(false);
+    
     const { openCloseCreateModal,
         CreateState,
         openCloseEditModal,
-        EditState, setEditState, openCloseDeleteModal, DeleteState } = useModalController();
+        EditState, setEditState } = useModalController();
 
-
+    
     const [Paciente, setPaciente] = useState({
+
         nombre: '',
         apellido: '',
         fechaNacimiento: '',
         carrera: '',
         departamento: '',
         sexo: '',
+        matricula: '',
         telefono: '',
         tipoPaciente: ''
     });
 
+   
     const EditOrDeleteSelector = (data, caso) => {
-       
+
         setPaciente(data);
         (caso === 'Editar') ? setEditState(true) : openCloseDeleteModal();
 
@@ -43,24 +51,27 @@ export const usePatient = () => {
     }
 
 
-    const DeletePatient = async () => {
-
-        await axios.delete(url + Paciente.pacienteId).then(response => {
-            setState(State.filter(datas => datas.pacienteId !== Paciente.pacienteId))
-        })
-        openCloseDeleteModal();
-
-    }
     const PostPatient = async () => {
-        console.log(Paciente);
-        // const { data } = await axios.post(url, Paciente).then();
-        // setState(State.concat(data));
+  
+        const { data } = await axios.post(url, Paciente).then();
+        setState(State.concat(data));
+     
         openCloseCreateModal();
+        setOpen(true);
+        
     }
 
     const getData = async () => {
         const { data } = await axios.get(url).then();
-        setState(data)
+       const newdata =  data.map((solofecha)=>{
+        let data = (solofecha.fechaNacimiento).slice(0,10);
+            solofecha.fechaNacimiento = data;
+         return  solofecha;
+            
+        })
+      
+
+        setState(newdata)
     }
     useEffect(() => {
         getData();
@@ -76,22 +87,28 @@ export const usePatient = () => {
                         dat.apellido = Paciente.apellido;
                         dat.fechaNacimiento = Paciente.fechaNacimiento;
                         dat.carrera = Paciente.carrera;
+                        dat.matricula = Paciente.matricula;
                         dat.departamento = Paciente.departamento;
                         dat.sexo = Paciente.sexo;
                         dat.telefono = Paciente.telefono;
                         dat.tipoPaciente = Paciente.tipoPaciente;
-                       
+
                     }
                 })
                 setState(dataNueva);
                 openCloseEditModal();
+           
+                setAlertEdit(true);
+               
             })
+
         setPaciente({
             nombre: '',
             apellido: '',
             fechaNacimiento: '',
             carrera: '',
             departamento: '',
+            matricula: '',
             sexo: '',
             telefono: '',
             tipoPaciente: ''
@@ -110,10 +127,16 @@ export const usePatient = () => {
         EditState,
         handleChange,
         Paciente,
+        PutPatient,
         EditOrDeleteSelector,
-        DeletePatient,
-        openCloseDeleteModal, DeleteState,
-        PutPatient
+
+        Open,
+        setOpen,
+        
+        AlertEdit,
+        setAlertEdit
+
+
     }
 
 
