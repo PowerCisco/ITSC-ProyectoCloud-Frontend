@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useMsal } from "@azure/msal-react";
 import IconButton from '@material-ui/core/IconButton';
 import { MdOutlineAccountCircle } from "react-icons/md";
-
+import Button from '@mui/material/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { AccountPicker } from "../AccountPicker";
@@ -14,14 +14,10 @@ export const SignOutButton = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
-    const handleLogout = (logoutType) => {
+    const handleLogout = () => {
         setAnchorEl(null);
-
-        if (logoutType === "popup") {
-            instance.logoutPopup();
-        } else if (logoutType === "redirect") {
             instance.logoutRedirect();
-        }
+      
     }
 
     const handleAccountSelection = () => {
@@ -57,8 +53,7 @@ export const SignOutButton = () => {
                 onClose={() => setAnchorEl(null)}
             >
                 <MenuItem onClick={() => handleAccountSelection()} key="switchAccount">Cambiar Cuenta</MenuItem>
-                <MenuItem onClick={() => handleLogout("popup")} key="logoutPopup">Salir por ventana</MenuItem>
-                <MenuItem onClick={() => handleLogout("redirect")} key="logoutRedirect">Salir de redireccion</MenuItem>
+                <MenuItem onClick={() => handleLogout()} key="logoutRedirect">Cerrar sesion</MenuItem>
             </Menu>
            <AccountPicker open={accountSelectorOpen} onClose={handleClose} />
         </div>
