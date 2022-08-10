@@ -12,11 +12,12 @@ const isEdge = msedge > 0;
 const isFirefox = firefox > 0; // Only needed if you need to support the redirect flow in Firefox incognito
 
 // Config object to be passed to Msal on creation
+// redirectUri: "https://www.proyectofinal.cloud";
 export const msalConfig = {
     auth: {
         clientId: "84c198d7-95d1-44cb-b67d-b5cc03de1d08",
         authority: "https://login.microsoftonline.com/19d7ec74-b477-423d-8b58-ae4a996cf32f",
-        redirectUri: "https://proyectofinal.cloud/",
+        redirectUri: "http://localhost:3000/",
         postLogoutRedirectUri: "/"
     },
     cache: {

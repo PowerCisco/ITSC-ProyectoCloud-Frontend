@@ -1,9 +1,9 @@
 
 import { ProSidebar, Menu } from 'react-pro-sidebar';
 import { NavBarComponents } from './NavBarComponents';
-import 'react-pro-sidebar/dist/css/styles.css';
+import { AuthenticatedTemplate } from "@azure/msal-react";
 import NavBarHeadMessage from './NavBarHeadMessage';
-import '../Sidemenu/SidMenuStyle.scss';
+import './NavBar.scss'
 
 
 export const NavBar = () => {
@@ -12,19 +12,24 @@ export const NavBar = () => {
 
   return (
     <>
-
+   <AuthenticatedTemplate>
       <ProSidebar className="sidebar">
         <Menu iconShape="square">
 
           <NavBarHeadMessage />
-
           <hr />
+       
 
-          <NavBarComponents />
+
+
+            <NavBarComponents />
+
+  
+
 
         </Menu>
       </ProSidebar>
-
+      </AuthenticatedTemplate>
     </>
   )
 }

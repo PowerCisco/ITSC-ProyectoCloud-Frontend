@@ -1,5 +1,5 @@
 import {  UnauthenticatedTemplate } from "@azure/msal-react";
-import { MenuNoAuth } from "../Sidemenu/MenuNoAuth";
+import { MenuNoAuth } from "../Login/MenuNoAuth";
 
 
 export function Home() {

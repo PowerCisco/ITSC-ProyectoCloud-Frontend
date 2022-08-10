@@ -1,0 +1,14 @@
+.video-wrapper{
+ 
+position: absolute;
+left: 50%;
+top: 50%;
+height: 100vh;
+width: 100vw;
+/* The following will size the video to fit the full container. Not necessary, just nice.*/
+
+transform: translate(-60%,-50%);
+z-index: -1;
+}
+
+
