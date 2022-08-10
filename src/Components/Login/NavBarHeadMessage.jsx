@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { MenuItem } from "react-pro-sidebar";
 import { useMsal } from "@azure/msal-react";
-import SignInSignOutButton from "./Botones Login/SignInSignOutButton";
 import { AuthenticatedTemplate } from "@azure/msal-react";
 
 const NavBarHeadMessage = () => {
@@ -18,12 +17,14 @@ const NavBarHeadMessage = () => {
     }, [activeAccount]);
 
     if (name) {
-        return <MenuItem ><p className='sidebar-Title'>Registro de casos</p>
-        <SignInSignOutButton/>
-        <AuthenticatedTemplate>
-        <center><p>Bienvenido {name}</p></center>
-        </AuthenticatedTemplate>
+        return <><MenuItem ><p className='sidebar-Title'>Centro de Riesgos</p>
+
+
         </MenuItem>;
+            <AuthenticatedTemplate>
+                <center><p>Bienvenido <b>{name}</b></p></center>
+            </AuthenticatedTemplate>
+        </>
     } else {
         return null;
     }
