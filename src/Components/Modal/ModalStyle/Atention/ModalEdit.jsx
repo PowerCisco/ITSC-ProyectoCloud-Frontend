@@ -1,17 +1,18 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles((theme) => ({
+const styleEdit = makeStyles((theme) => ({
 
   modal: {
     position: 'absolute',
     display: 'flex',
-    flexDirection: 'column',
-    width: 500,
-    height: 750,
+    flexDirection: 'row',
+flexWrap:'wrap',
+    width: 700,
+    height: 400,
     backgroundColor:  theme.palette.background.paper,
     border: '2px solid #90CAF9',
     boxShadow: theme.shadows[9],
-    padding: theme.spacing(2, 4, 3),
+    padding: theme.spacing(2, 2, 2),
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
@@ -32,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     height: '35%',
-    marginBottom: '30px',
     width: '100%',
 
   },
@@ -45,32 +45,57 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     height: '35%',
     width: '105%',
-    marginBottom: '30px',
 
   },
-
-
-  modal__textarea_diagnostico:{
-    maxWidth: 150, maxHeight: 100, minHeight:100, outline: 'none', padding: '2px',
-
+  input_Atencion:{
+    position:'relative',
+    top:-40
+  },
+  input_Diagnostico:{
+        position:'absolute',
+        top:'25%',
+        left:'0%'
+  },
+  input_fecha:{ 
+    position:'absolute',
+    top:'25%',
+    left:'65%'
+  },
+  texarea:{
+        position:'absolute',
+       
+  },
+  modal__textarea_tratamiento:{
+    maxWidth: 290, maxHeight: 100, minHeight:100, outline: 'none', padding: '2px',
+    width:290,
+    position: 'absolute',
+    top:'95%',
+    left:'55%'
 
   },
   modal__textarea_medicamentos:{
 
-    maxWidth: 150, maxHeight: 100, minHeight:100, outline: 'none', padding: '2px',
-    marginLeft: "130px"
-
+    maxWidth: 290, maxHeight: 100, minHeight:100, outline: 'none', padding: '2px',
+    width:290,
+    position: 'absolute',
+    top:'95%',
+    left:'0%'
   },
   titles:{
     fontFamily:'sans-serif'
+  },
+  button:{
+    position:'relative',
+    top:'17%',
+    left:'75%'
   }
 }));
 
-export const ModalBodyAtention= () => {
-  const styles = useStyles();
+export const ModalBodyEditAtention= () => {
+  const stylesForEdit = styleEdit();
 
 
   return {
-    styles
+    stylesForEdit
   }
 }
