@@ -4,7 +4,7 @@ import TextareaAutosize from '@mui/base/TextareaAutosize';
 import { ModalBodyAtention } from '../../ModalStyle/Atention/ModalStyle';
 
 export const BodyAdd = (Paciente, handleChange, openCloseCreateModal, postAtention, DateTime) => {
-
+    const {styles} = ModalBodyAtention();
 
   const bodyAgregar = (
     <div className={styles.modal}>
