@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMsal } from "@azure/msal-react";
 import IconButton from '@material-ui/core/IconButton';
-import { CgLogOut } from "react-icons/cg";
+import { IoMdLogOut } from "react-icons/io";
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { AccountPicker } from "../AccountPicker";
@@ -36,7 +36,7 @@ export const SignOutButton = () => {
                 color="inherit"
                 className="iconWrapper"
             >
-                <CgLogOut className="icon"/>
+                <IoMdLogOut className="icon"/>
             </IconButton>
             <Menu
                 id="menu-appbar"

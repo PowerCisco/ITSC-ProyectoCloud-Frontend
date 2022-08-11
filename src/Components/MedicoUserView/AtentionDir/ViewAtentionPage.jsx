@@ -23,7 +23,9 @@ export const ViewAtentionPage = ({getAtention,AddOrEditSelector}) => {
 
     return (
         <>
-            <br/>
+        
+ 
+         <br/>
             <br/>
             <br/>
             <Box className='Box_view'
@@ -36,7 +38,7 @@ export const ViewAtentionPage = ({getAtention,AddOrEditSelector}) => {
             },
           }}
             >
-            
+          
                 <DataGrid
                     className='Box-DataGrid_view'
                     getRowId={(getAtention) => getAtention.atencionId}

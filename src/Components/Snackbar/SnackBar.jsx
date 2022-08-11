@@ -28,6 +28,27 @@ export function SucessSnackbars({ Open, setOpen }) {
     )
 
 };
+export function SucessSnackbarsAtention({ Open, setOpen }) {
+
+    const handleClose = (reason) => {
+        if (reason === 'clickaway') return;
+
+        setOpen(false);
+    }
+    return (
+        <>
+            <Snackbar anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+            }} open={Open} sx={{ left: '300%' }} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={"success"} sx={{ width: '100%' }}>
+                    Se ha agregado una nueva atencion!
+                </Alert>
+            </Snackbar>
+        </>
+    )
+
+};
 export function InfoSnackbars({ AlertEdit,setAlertEdit }) {
 
     const handleClose = (reason) => {
@@ -43,6 +64,27 @@ export function InfoSnackbars({ AlertEdit,setAlertEdit }) {
             }} open={AlertEdit} sx={{ left: '300%' }} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity={"info"} sx={{ width: '100%' }}>
                     Se ha modificado un paciente!
+                </Alert>
+            </Snackbar>
+        </>
+    )
+
+};
+export function InfoSnackbarsEdit({ AlertEdit,setAlertEdit }) {
+
+    const handleClose = (reason) => {
+        if (reason === 'clickaway') return;
+
+        setAlertEdit(false);
+    }
+    return (
+        <>
+            <Snackbar anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+            }} open={AlertEdit} sx={{ left: '300%' }} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={"info"} sx={{ width: '100%' }}>
+                    Se ha modificado una atencion!
                 </Alert>
             </Snackbar>
         </>

@@ -115,6 +115,7 @@ export const ViewBodyAtention = (AddOrEditSelector) => {
                 const data = params.row;
                 return <ThemeProvider theme={theme}>
                     <Button  variant="contained"  color="secondary" onClick={() => AddOrEditSelector(data, "Editar")}>Editar</Button>
+                
                     </ThemeProvider>
                 },
         }
