@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMsal } from "@azure/msal-react";
 import IconButton from '@material-ui/core/IconButton';
-import { CgLogOut } from "react-icons/Cg";
+import { CgLogOut } from "react-icons/cg";
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { AccountPicker } from "../AccountPicker";
