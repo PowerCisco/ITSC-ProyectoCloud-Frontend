@@ -2,55 +2,69 @@ import { Button, TextField, FormControlLabel, FormLabel, Radio, RadioGroup } fro
 import { ModalBodyPacientes } from '../../ModalStyle/Patient/ModalStyle';
 
 
-export const BodyPatient = ( PostPatient, PutPatient, handleChange, Paciente,openCloseCreateModal,openCloseEditModal) => {
+export const BodyPatient = (PostPatient, PutPatient, handleChange, Paciente, openCloseCreateModal, openCloseEditModal) => {
 
-    
+
     const { styles } = ModalBodyPacientes();
     const bodyInsertar = (
         <div className={styles.modal}>
-               <center><h5>Agregar Paciente</h5></center> 
 
-            <TextField name="nombre" className='{styles.inputMaterial} ' label="Nombre" onChange={handleChange} />
-            <br />
-            <TextField name="apellido" className='{styles.inputMaterial} ' label="Apellido" onChange={handleChange} />
-            <br />
-            <TextField name="carrera" className='{styles.inputMaterial} ' label="Carrera" onChange={handleChange} />
-            <br />
-            <TextField name="matricula" className='{styles.inputMaterial} ' label="Matricula" onChange={handleChange} />
-            <br />
-            <TextField name="departamento" className='{styles.inputMaterial} ' label="Departamento" onChange={handleChange} />
-            <br />
+            <div className={styles.title}>
+                <center><h5>Agregar Paciente</h5></center>
+            </div>
 
-            <FormLabel>Genero</FormLabel>
-            <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
-                name="genderRadio"
-            >
-                <FormControlLabel name="sexo" value="femenino" control={<Radio />} label="Femenino" onChange={handleChange} />
-                <FormControlLabel name="sexo" value="masculino" control={<Radio />} label="Masculino" onChange={handleChange} />
+            <div className={styles.firstColumn}>
+                <TextField name="nombre" className={styles.inputMaterial} label="Nombre" onChange={handleChange} />
+                <br />
+                <TextField name="apellido" className={styles.inputMaterial} label="Apellido" onChange={handleChange} />
+                <br />
+                <TextField name="carrera" className={styles.inputMaterial} label="Carrera" onChange={handleChange} />
+                <br />
+            </div>
 
+            <div className={styles.secondColumn}>
+                <TextField name="matricula" className={styles.inputMaterial} label="Matricula" onChange={handleChange} />
+                <br />
+                <TextField name="departamento" className={styles.inputMaterial} label="Departamento" onChange={handleChange} />
+                <br />
 
-            </RadioGroup>
-            <TextField name="telefono" className='{styles.inputMaterial} ' label="Telefono" onChange={handleChange} />
-            <br />
-            <TextField name="tipoPaciente" className='{styles.inputMaterial} ' label="Tipo de Paciente" onChange={handleChange} />
-            <br />
-
-            <TextField
-                className='{styles.inputMaterial}'
-                name="fechaNacimiento"
-                label="Fecha de nacimiento"
-                InputLabelProps={{ shrink: true, required: true }}
-                type="date"
-                onChange={handleChange}
-            />
-            <br />
+                <FormLabel>Genero</FormLabel>
+                <RadioGroup
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    defaultValue="female"
+                    name="genderRadio"
+                >
+                    <FormControlLabel name="sexo" value="femenino" control={<Radio />} label="Femenino" onChange={handleChange} />
+                    <FormControlLabel name="sexo" value="masculino" control={<Radio />} label="Masculino" onChange={handleChange} />
 
 
-            <div align="right">
-                <Button onClick={() => PostPatient()}>Insertar</Button>
-                <Button onClick={() => openCloseCreateModal()}>Cancelar</Button>
+                </RadioGroup>
+            </div>
+
+
+            <div className={styles.thirdColumn}>
+                <TextField name="telefono" className={styles.inputMaterial} label="Telefono" onChange={handleChange} />
+                <br />
+                <TextField name="tipoPaciente" className={styles.inputMaterial} label="Tipo de Paciente" onChange={handleChange} />
+                <br />
+
+                <TextField
+                    className='{styles.inputMaterial}'
+                    name="fechaNacimiento"
+                    label="Fecha nacimiento"
+                    InputLabelProps={{ shrink: true, required: true }}
+                    type="date"
+                    onChange={handleChange}
+                />
+                <br />
+
+            </div>
+
+            <div className={styles.buttonColumn} align="right">
+                <div className={styles.button}>
+                    <Button onClick={() => PostPatient()}>Insertar</Button>
+                    <Button onClick={() => openCloseCreateModal()}>Cancelar</Button>
+                </div>
             </div>
         </div>
     )
@@ -58,18 +72,25 @@ export const BodyPatient = ( PostPatient, PutPatient, handleChange, Paciente,ope
 
     const bodyEditar = (
         <div className={styles.modal}>
-           <center><h5>Editar Paciente</h5></center> 
 
-            <TextField name="nombre" className='{styles.inputMaterial} ' label="Nombre" onChange={handleChange} value={Paciente && Paciente.nombre} />
+            <div className={styles.title}>
+                <center><h5>Editar Paciente</h5></center>
+            </div>
+
+            <div className={styles.firstColumn}>
+                <TextField name="nombre" className={styles.inputMaterial} label="Nombre" onChange={handleChange} value={Paciente && Paciente.nombre} />
+                <br />
+                <TextField name="apellido" className={styles.inputMaterial} label="Apellido" onChange={handleChange} value={Paciente && Paciente.apellido} />
+                <br />
+
+                <TextField name="carrera" className={styles.inputMaterial} label="Carrera" onChange={handleChange} value={Paciente && Paciente.carrera} />
+                <br />
+
+            </div>
+            <div className={styles.secondColumn}>
+            <TextField name="matricula" className={styles.inputMaterial} label="Matricula" onChange={handleChange} value={Paciente && Paciente.matricula} />
             <br />
-            <TextField name="apellido" className='{styles.inputMaterial} ' label="Apellido" onChange={handleChange} value={Paciente && Paciente.apellido} />
-            <br />
-            
-            <TextField name="carrera" className='{styles.inputMaterial} ' label="Carrera" onChange={handleChange} value={Paciente && Paciente.carrera} />
-            <br />
-            <TextField name="matricula" className='{styles.inputMaterial} ' label="Matricula" onChange={handleChange} value = {Paciente && Paciente.matricula}/>
-            <br />
-            <TextField name="departamento" className='{styles.inputMaterial} ' label="Departamento" onChange={handleChange} value={Paciente && Paciente.departamento} />
+            <TextField name="departamento" className={styles.inputMaterial} label="Departamento" onChange={handleChange} value={Paciente && Paciente.departamento} />
             <br />
 
             <FormLabel>Genero</FormLabel>
@@ -83,6 +104,9 @@ export const BodyPatient = ( PostPatient, PutPatient, handleChange, Paciente,ope
 
 
             </RadioGroup>
+           </div>
+
+           <div className={styles.thirdColumn}> 
             <TextField name="telefono" className='{styles.inputMaterial} ' label="Telefono" onChange={handleChange} value={Paciente && Paciente.telefono} />
             <br />
             <TextField name="tipoPaciente" className='{styles.inputMaterial} ' label="Tipo de Paciente" onChange={handleChange} value={Paciente && Paciente.tipoPaciente} />
@@ -91,7 +115,7 @@ export const BodyPatient = ( PostPatient, PutPatient, handleChange, Paciente,ope
             <TextField
                 className='{styles.inputMaterial}'
                 name="fechaNacimiento"
-                label="Fecha de nacimiento"
+                label="Fecha Nacimiento"
                 InputLabelProps={{ shrink: true, required: true }}
                 type="date"
                 onChange={handleChange}
@@ -99,10 +123,14 @@ export const BodyPatient = ( PostPatient, PutPatient, handleChange, Paciente,ope
             />
             <br />
 
+            </div>
 
-            <div align="right">
+
+            <div className={styles.buttonColumn}  align="right">
+                <div className={styles.button}>
                 <Button color="primary" onClick={() => PutPatient()}>Editar</Button>
                 <Button onClick={() => openCloseEditModal()}>Cancelar</Button>
+                </div>
             </div>
         </div>
     )
@@ -113,7 +141,7 @@ export const BodyPatient = ( PostPatient, PutPatient, handleChange, Paciente,ope
     return {
         bodyEditar,
         bodyInsertar
-        
+
     }
 
 

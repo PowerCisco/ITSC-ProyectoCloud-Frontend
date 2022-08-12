@@ -29,7 +29,7 @@ export const ErrorComponent = ({error}) => {
                 Esta pagina esta restringida, debe de iniciar sesion para continuar
                 Redirigiendo a inicio de sesion...
               </Typography>
-        {cargarLogin()}
+     
             </Grid>
             <Grid xs={3}>
               <img

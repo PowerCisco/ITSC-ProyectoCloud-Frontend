@@ -6,8 +6,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     display: 'flex',
     flexDirection: 'column',
-    width: 300,
-    height: 770,
+
+    width: 650,
+    height: 450,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #90CAF9',
     boxShadow: theme.shadows[9],
@@ -21,10 +22,40 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer'
   },
   inputMaterial: {
-    marginTop:'3px',
-    marginLeft:'10px',
-    width: '10%',
-    borderRadius: '2%'
+
+    width: '30%',
+
+  },
+  title:{
+    height:'15%'
+  },
+  firstColumn:{
+    display:'flex',
+    flexDirection:'row',
+    height:'24%',
+    justifyContent:'space-around'
+
+  },
+  secondColumn:{
+    height:'24%',
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-between'
+  },
+  thirdColumn:{
+    height:'24%',
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-between'
+  },
+  buttonColumn:{
+    position:'relative',
+    height:'10%'
+  },
+  button:{
+    position:'absolute',
+    left:'70%',
+    top:'80%'
   }
 }));
   
