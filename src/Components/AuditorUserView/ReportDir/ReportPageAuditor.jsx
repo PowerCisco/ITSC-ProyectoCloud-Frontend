@@ -2,10 +2,14 @@ import {TableExportData} from '../../MedicoUserView/ReportDir/TableExportData'
 import { useReport } from '../../../Hooks/useReport';
 import { Modal } from '@material-ui/core';
 import {BodyReportModal} from '../../Modal/ModalBody/Report/BodyReport';
-import jsPDF from 'jspdf'
+
 import * as XLSX from 'xlsx/xlsx.mjs'
 import { Button, createTheme, ThemeProvider } from '@mui/material';
-import 'jspdf-autotable'
+
+import jsPDF from 'jspdf'; 
+import 'jspdf-autotable'; 
+
+
 
 
 import './ReportPageAuditor.scss';
