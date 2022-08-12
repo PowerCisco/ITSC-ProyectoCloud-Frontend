@@ -4,7 +4,7 @@ import { useMsal } from "@azure/msal-react";
 import { IconContext } from 'react-icons';
 import { Link } from 'react-router-dom';
 import { MenuItem, SubMenu } from 'react-pro-sidebar';
-import { IoIosAddCircleOutline, BsEye, TbReportMedical } from 'react-icons/all';
+import { IoIosAddCircleOutline, BsEye, TbReportMedical,HiOutlineDocumentReport } from 'react-icons/all';
 
 
 const fontStyles = {
@@ -13,22 +13,42 @@ const fontStyles = {
 }
 
 export const NavBarComponents = () => {
-  const { instance } = useMsal();
-  const [name, setName] = useState(null);
+  const [rol, setrol] = useState(null);
+  const [users, setUsers] = useState(null);
+  const {instance} =useMsal();
+  const activeAccount = instance.getActiveAccount();
+
+
   const [dateState, setDateState] = useState(new Date());
   useEffect(() => {
     setInterval(() => setDateState(new Date()), 1000)
   }, [])
-  const activeAccount = instance.getActiveAccount();
+
+
   useEffect(() => {
     if (activeAccount) {
-      setName(activeAccount.name.split(' ')[0]);
+        const nameAcc = activeAccount.username.split(0, 10)[0];
+        const user = activeAccount.name.split(0,10)[0];
+        const admin = nameAcc.match("administrador");
+        const auditor = nameAcc.match("administrativo");
+        const medico = nameAcc.match("medico");
+       
+       
+        if (admin != undefined) {
+            setrol(admin)
+           
+        }else if( auditor != undefined){
+            setrol(auditor)
+        }else if (medico != undefined){
+            setrol(medico);
+        }
+        setUsers(user)
     } else {
-      setName(null);
+        setrol(null);
     }
-  }, [activeAccount]);
+}, []);
 
-  if (name) {
+  if (rol == "medico") {
     return (
       <>
 
@@ -56,7 +76,27 @@ export const NavBarComponents = () => {
         <MenuItem style={fontStyles}>Reporte<Link to='/medico/reporte' /></MenuItem>
       </>
     )
-  } else {
-    return null
+  } else if(rol=="administrativo"){
+     return (
+      <>
+            <SubMenu style={fontStyles} title="Pacientes">
+          <IconContext.Provider value={{ size: "1.5em" }}  >
+            <MenuItem icon={<IoIosAddCircleOutline />} >Ver  Paciente<Link to='/auditor/mantenimiento_sololectura' /></MenuItem>
+          </IconContext.Provider>
+        </SubMenu>
+
+        <SubMenu style={fontStyles} title="Atenciones">
+          <MenuItem icon={<BsEye />}>Ver Atenciones<Link to='/auditor/atenciones_sololectura' /></MenuItem>
+     
+
+
+        </SubMenu>
+        <SubMenu style={fontStyles} title="Reporte">
+
+        <MenuItem icon={<HiOutlineDocumentReport/>}>Generar Reporte<Link to='/auditor/reporte_sololectura' /></MenuItem>
+        </SubMenu>
+       
+      </>
+     )
   }
 }

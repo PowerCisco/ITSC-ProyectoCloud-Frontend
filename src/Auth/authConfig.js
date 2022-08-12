@@ -14,7 +14,7 @@ export const msalConfig = {
     auth: {
         clientId: "84c198d7-95d1-44cb-b67d-b5cc03de1d08",
         authority: "https://login.microsoftonline.com/19d7ec74-b477-423d-8b58-ae4a996cf32f",
-        redirectUri: "https://www.proyectofinal.cloud",
+        redirectUri: "http://localhost:3000/",
         postLogoutRedirectUri: "/"
     },
     cache: {
@@ -51,6 +51,7 @@ export const msalConfig = {
 // Add here scopes for id token to be used at MS Identity Platform endpoints.
 export const loginRequest = {
     scopes: ["User.Read"]
+    // scopes: [`api://84c198d7-95d1-44cb-b67d-b5cc03de1d08/.default`],
 };
 
 export const graphConfig = {
