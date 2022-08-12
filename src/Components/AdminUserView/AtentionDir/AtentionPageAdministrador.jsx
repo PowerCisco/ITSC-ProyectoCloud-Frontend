@@ -1,6 +1,6 @@
-import  './AtentionPage.scss';
+import  './AtentionPageAdministrador.scss';
 
-export const AtentionPage = () => {
+export const AtentionPageAdministrador = () => {
   return (
     <>
       <div className='atencion'>TODO: Pagina de atenciones</div>

@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 import { useState } from 'react';
 
 
-export const TablePatinent = ({State,EditOrDeleteSelector }) => {
+export const TablePatinentAdministrador = ({State,EditOrDeleteSelector }) => {
     const [pageSize, setPageSize] = useState(10)
 
     const columns = [
@@ -130,10 +130,12 @@ export const TablePatinent = ({State,EditOrDeleteSelector }) => {
                     checkboxSelection = {false}
                     pageSize={pageSize}
                     onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-                    rowsPerPageOptions={[10, 25, 50]}
+            
                     pagination
                     localeText={{
-                        toolbarExportLabel:"Exportar",
+                    
+                        toolbarExportPrint:"Imprimir",
+                       toolbarExportCSV:"Exportar Archivo .csv",
                         toolbarColumns: "Columnas",
                         toolbarFilters: "Filtros",
                         toolbarExport: "Exportar Data"

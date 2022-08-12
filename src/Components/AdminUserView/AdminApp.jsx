@@ -2,14 +2,14 @@
 
 
 import { Route, Routes, Navigate } from "react-router-dom"
-import { LoginPage } from "../Login/LoginPage"
-import { AtentionPage } from "../AdminUserView/AtentionDir/AtentionPage"
-import { PatientPage } from "./PatientDir/PatientPage"
-import { ReportPage } from "./ReportDir/ReportPage"
+
+import { AtentionPageAdministrador } from "./AtentionDir/AtentionPageAdministrador"
+import { PatientPageAdministrador } from "./PatientDir/PatientPageAdministrador"
+import { ReportPageAdmin } from "./ReportDir/ReportPageAdmin"
 
 
 import { NotFound } from "../Not Found Page/NotFound"
-import { SidMenu } from "../Sidemenu/SidMenu"
+import { ConfigUserPage } from "./ConfigDir/ConfigUserPage"
 
 
 export const AdminApp = () => {
@@ -17,23 +17,20 @@ export const AdminApp = () => {
 
     return (
         <>
-            <SidMenu />
+          
 
             <Routes>
-                {/* TODO:HomePage */}
-                {/* <Route path='/' element={} /> */}
-                {/* Rutas del auditor */}
             
-                <Route path='/admin/mantenimiento_paciente' element={<PatientPage />} />
-                <Route path='/admin/reporte' element={<ReportPage />} />
-                <Route path='/admin/atenciones' element={<AtentionPage />} />
-                <Route path='/admin/config' element={<AtentionPage />} />
+            
+                <Route path='/admin/mantenimiento_paciente' element={<PatientPageAdministrador />} />
+                <Route path='/admin/reporte' element={<ReportPageAdmin />} />
+                <Route path='/admin/atenciones' element={<AtentionPageAdministrador />} />
+                <Route path='/admin/config' element={<ConfigUserPage />} />
 
-                {/* Rutas del auditor */}
 
 
                 <Route path='/error' element={<NotFound />} />
-                <Route path='/*' element={<Navigate to="error" />} />
+                <Route path='/*' element={<Navigate to="/admin/mantenimiento_paciente" />} />
 
             </Routes>
         </>

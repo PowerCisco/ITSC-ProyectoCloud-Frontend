@@ -53,7 +53,7 @@ export const SignOutButton = () => {
                 open={open}
                 onClose={() => setAnchorEl(null)}
             >
-                <MenuItem onClick={() => handleAccountSelection()} key="switchAccount">Cambiar Cuenta</MenuItem>
+    
                 <MenuItem onClick={() => handleLogout()} key="logoutRedirect">Cerrar sesion</MenuItem>
             </Menu>
            <AccountPicker open={accountSelectorOpen} onClose={handleClose} />

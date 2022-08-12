@@ -7,6 +7,7 @@ import { MedicoApp } from "./Components/MedicoUserView/MedicoApp";
 
 import { PublicClientApplication, EventType } from "@azure/msal-browser";
 import { msalConfig } from "./Auth/authConfig";
+import { App } from './Components/App';
 export const msalInstance = new PublicClientApplication(msalConfig);
 
 if (!msalInstance.getActiveAccount() && msalInstance.getAllAccounts().length > 0) {
@@ -27,7 +28,7 @@ msalInstance.addEventCallback((event) => {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
-    <MedicoApp pca={msalInstance} />
+    <App pca={msalInstance} />
   </Router>
 
 )
