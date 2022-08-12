@@ -8,13 +8,13 @@ const isIE = msie > 0 || msie11 > 0;
 const isEdge = msedge > 0;
 const isFirefox = firefox > 0; 
 
-
+//localhost: http://localhost:3000/
 // redirectUri: "https://www.proyectofinal.cloud";
 export const msalConfig = {
     auth: {
         clientId: "84c198d7-95d1-44cb-b67d-b5cc03de1d08",
         authority: "https://login.microsoftonline.com/19d7ec74-b477-423d-8b58-ae4a996cf32f",
-        redirectUri: "http://localhost:3000/",
+        redirectUri: "https://www.proyectofinal.cloud",
         postLogoutRedirectUri: "/"
     },
     cache: {
