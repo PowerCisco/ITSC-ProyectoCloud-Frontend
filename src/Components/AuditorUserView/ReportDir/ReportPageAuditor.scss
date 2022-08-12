@@ -1,21 +1,61 @@
-// .reports{
+.rep{
 
-// box-sizing: border-box;
-// position: relative;
-// left: 19%;
-// width: 81vw;
-// height: 100vh;
-//  background-color:  rgb(235, 241, 217);
-// }
-// @media  (max-width:1600px) {
-//     .report{
-//         left:18.5%;
-//     }
-// }
-
-// @media  (max-width:1366px) {
-//     .report{
-//         left:20%;
-//         width: 80vw;
-//     }
-// }
+    box-sizing: border-box;
+    position: relative;
+    left: 19%;
+    width: 82vw;
+    height: 100vh;
+    
+     
+        .data{
+                width:98%;
+                position:absolute;
+                top:10%;
+             
+                left:1%;
+        }
+     
+    }
+    .pdfRep{
+        position:absolute;
+        top:20px;
+        left:680px;
+    }
+    .excelRe{
+        position:absolute;
+        top:20px;
+        left:700px;
+    }
+    .reportIco{
+        position:absolute;
+    
+        top:20px;
+        left:15px;
+        width: 200px;
+        height: 40px;
+        color:#2196F3;
+        transition: all .5s ease-in-out;
+        &:hover{
+          color:#ffffff;
+       
+        }
+    }
+    @media  (max-width:1600px) {
+        .rep{
+            left:17%;
+        }
+    }
+    
+    @media  (max-width:1366px) {
+        .rep{
+            left:20%;
+            width: 80vw;
+        }
+    }
+    
+    @media  (min-width:1920px) {
+        .rep{
+            left:14%;
+            width: 86vw;
+        }
+    }
