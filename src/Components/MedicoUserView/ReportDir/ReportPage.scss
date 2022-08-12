@@ -5,7 +5,7 @@ position: relative;
 left: 19%;
 width: 82vw;
 height: 100vh;
- background-color:  rgb(230, 233, 224);
+
  
     .dataTable{
             width:98%;
@@ -16,10 +16,15 @@ height: 100vh;
     }
  
 }
-.createReport{
+.pdfReport{
     position:absolute;
     top:20px;
-    left:400px;
+    left:680px;
+}
+.excelReport{
+    position:absolute;
+    top:20px;
+    left:700px;
 }
 .reportIcon{
     position:absolute;
