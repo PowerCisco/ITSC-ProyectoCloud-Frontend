@@ -15,12 +15,9 @@ export const AuditorApp = () => {
 
     return (
         <>
-            <SidMenu />
-
+       
             <Routes>
-                {/* TODO:HomePage */}
-                {/* <Route path='/' element={} /> */}
-                {/* Rutas del auditor */}
+           
            
                 <Route path='/auditor/mantenimiento_paciente' element={<PatientPage />} />
                 <Route path='/auditor/reporte' element={<ReportPage />} />

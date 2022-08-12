@@ -3,13 +3,46 @@
 box-sizing: border-box;
 position: relative;
 left: 19%;
-width: 81vw;
+width: 82vw;
 height: 100vh;
- background-color:  rgba(217, 232, 176, 1);
+
+ 
+    .dataTable{
+            width:98%;
+            position:absolute;
+            top:10%;
+         
+            left:1%;
+    }
+ 
+}
+.pdfReport{
+    position:absolute;
+    top:20px;
+    left:680px;
+}
+.excelReport{
+    position:absolute;
+    top:20px;
+    left:700px;
+}
+.reportIcon{
+    position:absolute;
+
+    top:20px;
+    left:15px;
+    width: 200px;
+    height: 40px;
+    color:#2196F3;
+    transition: all .5s ease-in-out;
+    &:hover{
+      color:#ffffff;
+   
+    }
 }
 @media  (max-width:1600px) {
     .report{
-        left:18.5%;
+        left:17%;
     }
 }
 
@@ -17,5 +50,12 @@ height: 100vh;
     .report{
         left:20%;
         width: 80vw;
+    }
+}
+
+@media  (min-width:1920px) {
+    .report{
+        left:14%;
+        width: 86vw;
     }
 }

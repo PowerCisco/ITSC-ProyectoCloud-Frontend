@@ -53,7 +53,7 @@ export const NavBarComponents = () => {
 
 
         </SubMenu>
-        <MenuItem style={fontStyles}>Reporte<Link to='/reporte' /></MenuItem>
+        <MenuItem style={fontStyles}>Reporte<Link to='/medico/reporte' /></MenuItem>
       </>
     )
   } else {

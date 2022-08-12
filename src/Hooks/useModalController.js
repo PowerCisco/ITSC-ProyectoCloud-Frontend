@@ -4,6 +4,8 @@ export const useModalController = () => {
 
 const [CreateState, setCreateState] = useState(false);
 const [EditState, setEditState] = useState(false);
+const [Report, setReport] = useState(false)
+const [reportButton, setreportButton] = useState(true)
 
 
   const openCloseCreateModal =()=>{
@@ -14,6 +16,14 @@ const [EditState, setEditState] = useState(false);
 
     setEditState(!EditState);
   }
+const openCloserButtonReport = () =>{
+  setreportButton(false);
+}
+  
+  const openCloseReportModal = () => {
+
+    setReport(!Report);
+  }
   return{ 
         openCloseCreateModal,
         CreateState,
@@ -23,5 +33,16 @@ const [EditState, setEditState] = useState(false);
         openCloseEditModal,
         EditState,
         setEditState,
+
+        openCloseReportModal,
+        Report,
+        setReport,
+
+
+        openCloserButtonReport,
+        setreportButton,
+        reportButton
+
+
   }
 }

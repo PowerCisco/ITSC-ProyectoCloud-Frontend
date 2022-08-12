@@ -8,7 +8,7 @@ const isIE = msie > 0 || msie11 > 0;
 const isEdge = msedge > 0;
 const isFirefox = firefox > 0; 
 
-
+//localhost: http://localhost:3000/
 // redirectUri: "https://www.proyectofinal.cloud";
 export const msalConfig = {
     auth: {
