@@ -115,14 +115,74 @@ export const GridAtention = (AddOrEditSelector) => {
                     <Button variant="contained" color = "primary"  onClick={() =>AddOrEditSelector(data, "Agregar")}>Agregar Atencion</Button>
                 </ThemeProvider>
             },
-        },
+        }
         
 
 
 
     ]
+
+
+    const columnsAuditor = [
+        { field: 'pacienteId', headerName: 'ID', width: 60,
+        headerClassName: 'super-app-theme--header', },
+        {
+            field: 'nombre',
+            headerName: 'Nombre',
+            headerClassName: 'super-app-theme--header',
+
+            width: 137,
+            editable: false,
+            headerAlign: 'center',
+            
+        },
+        {
+            field: 'apellido',
+            headerName: 'Apellido',
+            width: 200,
+            editable: false,
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header',
+        },
+        {
+            field: 'tipoPaciente',
+            headerName: 'Tipo de Paciente',
+            width: 200,
+            editable: false,
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header'
+        },
+        {
+            field: 'carrera',
+            headerName: 'Carrera',
+            width: 200,
+            editable: false,
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header'
+
+        },
+        {
+            field: 'matricula',
+            headerName: 'Matricula',
+            width: 200,
+            editable: false,
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header'
+        },
+        {
+            field: 'departamento',
+            headerName: 'Departamento',
+            width: 290,
+            editable: false,
+            headerAlign: 'center',
+            headerClassName: 'super-app-theme--header'
+        },
+
+        
+        ]
   return {
     customText,
+    columnsAuditor,
     columns
   }
 }

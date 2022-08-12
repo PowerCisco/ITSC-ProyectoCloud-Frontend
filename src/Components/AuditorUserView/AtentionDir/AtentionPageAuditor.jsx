@@ -1,9 +1,23 @@
 import  './AtentionPageAuditor.scss';
-
+import { TableAtentionPageAuditor } from './TableAtentionPageAuditor';
+import { useAtention } from '../../../Hooks/useAtention'
 export const AtentionPageAuditor = () => {
+
+  const { State } = useAtention();
+  
+
+  
+
+
+
+  
   return (
-    <>
-      <div className='atencion'>TODO: Pagina de atenciones</div>
+    <>  
+    <div className='atentions'>
+
+    <TableAtentionPageAuditor State={State} />
+
+    </div>
     
     
     </>

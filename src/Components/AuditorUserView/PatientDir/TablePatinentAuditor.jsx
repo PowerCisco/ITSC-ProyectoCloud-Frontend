@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-import './TablePatient.scss';
+import './TablePatinentAuditor.scss';
 import { DataGrid,GridToolbar,GridToolbarContainer,
     GridToolbarColumnsButton,
     GridToolbarFilterButton,
@@ -7,10 +7,12 @@ import { DataGrid,GridToolbar,GridToolbarContainer,
      } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
+import { GridPatient } from '../../Modal/ModalBody/Patient/GridPatient';
 
 
-export const TablePatinentAuditor = ({State,EditOrDeleteSelector }) => {
+export const TablePatinentAuditor = ({State }) => {
     const [pageSize, setPageSize] = useState(10)
+    const { customText} = GridPatient()
 
     const columns = [
         { field: 'pacienteId', headerName: 'PacienteID', width: 70 },
@@ -76,27 +78,7 @@ export const TablePatinentAuditor = ({State,EditOrDeleteSelector }) => {
             width: 100,
             editable: false,
 
-        },
-        {
-            field: "Editar",
-            headerName: "Editar",
-            sortable: false,
-            renderCell: (params) => {
-         
-                const data = params.row;
-              return <Button onClick={()=>EditOrDeleteSelector(data,"Editar")}>Editar</Button>;
-            },
-          },
-          {
-            field: "Eliminar",
-            headerName: "Eliminar",
-            sortable: false,
-            renderCell: (params) => {
-         
-                const data = params.row;
-              return <Button onClick={()=>EditOrDeleteSelector(data,"Eliminar")}>Eliminar</Button>;
-            },
-          }
+        }
 
 
 
@@ -115,36 +97,51 @@ export const TablePatinentAuditor = ({State,EditOrDeleteSelector }) => {
         )
       }
 
-
-//sx={{ height: '90vh' , width: '100%' }}
-    return (
+      return (
         <>
 
-            <Box className='Box'>
+            <Box className='Boxs'
+          sx={{
+           
+            '& .super-app-theme--header': {
+              backgroundColor: '#90CAF980',
+              fontFamily: "sans-serif",
+                fontSize: '16px',
+                fontWeight: 'bold',
+              
+            },
+          }}
+            >
+            
                 <DataGrid
-                  className='Box-DataGrid'
+                    className='Box-DataGrids'
                     getRowId={(State) => State.pacienteId}
-                    
+
                     rows={State}
                     columns={columns}
-                    checkboxSelection = {false}
+                    checkboxSelection={false}
                     pageSize={pageSize}
                     onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-                    rowsPerPageOptions={[10, 25, 50]}
+                    rowsPerPageOptions={[]}
                     pagination
-                    localeText={{
-                        toolbarExportLabel:"Exportar",
-                        toolbarColumns: "Columnas",
-                        toolbarFilters: "Filtros",
-                        toolbarExport: "Exportar Data"
-                      }}
+                    localeText={customText}
                     components={{ Toolbar: CustomToolbar }}
                     disableSelectionOnClick
+                    sx={{
+                        boxShadow: 5,
+                        border: 0,
+                        borderColor: '#00000',
+                        '& .MuiDataGrid-cell:hover': {
+                          color: '#42A5F5',
+
+                        },
+                       
+                    }}
                 />
             </Box>
 
 
-          
+
         </>
     )
 }
