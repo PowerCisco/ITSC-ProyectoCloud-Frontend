@@ -2,6 +2,7 @@ import React from 'react'
 import { MedicoApp } from "./MedicoUserView/MedicoApp";
 import { AuditorApp } from "./AuditorUserView/AuditorApp";
 import { useGetRoleUser } from '../Hooks/useGetRoleUser';
+import { AdminApp } from './AdminUserView/AdminApp';
 
 
 export const ChooseUrl = () => {
@@ -19,6 +20,8 @@ export const ChooseUrl = () => {
         <AuditorApp />
     )
   }else if(rol == "administrador"){
-
+    return(
+        <AdminApp/>
+    )
   }
 }
