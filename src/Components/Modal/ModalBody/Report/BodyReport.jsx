@@ -68,7 +68,7 @@ export const BodyReportModal = (handleChange, openCloseReportModal, getDataRepor
 
             <div className={styles.buttonColumn} align="right">
             
-                    <Button onClick={() => getDataReport()}>Insertar</Button>
+                    <Button onClick={() => getDataReport()}>Generar</Button>
                     <Button onClick={() => openCloseReportModal()}>Cancelar</Button>
               
             </div>
