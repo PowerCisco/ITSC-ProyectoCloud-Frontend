@@ -28,6 +28,27 @@ export function SucessSnackbars({ Open, setOpen }) {
     )
 
 };
+export function SnackUserAdd({ Open, setOpen }) {
+
+    const handleClose = (reason) => {
+        if (reason === 'clickaway') return;
+
+        setOpen(false);
+    }
+    return (
+        <>
+            <Snackbar anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+            }} open={Open} sx={{ left: '300%' }} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={"success"} sx={{ width: '100%' }}>
+                    Se ha agregado un nuevo usuario!
+                </Alert>
+            </Snackbar>
+        </>
+    )
+
+};
 export function SucessSnackbarsAtention({ Open, setOpen }) {
 
     const handleClose = (reason) => {
@@ -70,6 +91,7 @@ export function InfoSnackbars({ AlertEdit,setAlertEdit }) {
     )
 
 };
+
 export function InfoSnackbarsEdit({ AlertEdit,setAlertEdit }) {
 
     const handleClose = (reason) => {
@@ -91,5 +113,46 @@ export function InfoSnackbarsEdit({ AlertEdit,setAlertEdit }) {
     )
 
 };
+export function InfoSnackbarsAdmin({ AlertEdit,setAlertEdit }) {
 
+    const handleClose = (reason) => {
+        if (reason === 'clickaway') return;
+
+        setAlertEdit(false);
+    }
+    return (
+        <>
+            <Snackbar anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+            }} open={AlertEdit} sx={{ left: '300%' }} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={"info"} sx={{ width: '100%' }}>
+                    Se ha modificado un usuario!
+                </Alert>
+            </Snackbar>
+        </>
+    )
+
+};
+export function DeleteSnackbars({ DeleteSnack,setDeleteSnack }) {
+
+    const handleClose = (reason) => {
+        if (reason === 'clickaway') return;
+
+        setDeleteSnack(false);
+    }
+    return (
+        <>
+            <Snackbar anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+            }} open={DeleteSnack} sx={{ left: '300%' }} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={"warning"} sx={{ width: '100%' }}>
+                    Se ha eliminado un usuario!
+                </Alert>
+            </Snackbar>
+        </>
+    )
+
+};
 

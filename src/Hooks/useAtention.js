@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useGetRoleUser } from './useGetRoleUser';
 import { useModalController } from './useModalController';
 
 
@@ -7,17 +8,17 @@ const urlPatient = "https://itsc-proyectofinal.azurewebsites.net/paciente/";
 const urlAtention = "https://itsc-proyectofinal.azurewebsites.net/atencion/";
 
 
-
+const urlUser ="https://itsc-proyectofinal.azurewebsites.net/medico/"
 export const useAtention = () => {
     const [State, setState] = useState([]);
     const [getAtention, setAtention] = useState([]);
     const [DateTime, setDateTime] = useState("");
     const { openCloseCreateModal, setCreateState, CreateState, setEditState, openCloseEditModal, EditState } = useModalController();
-    const [AlertEdit, setAlertEdit] = useState(false);
     const [Open, setOpen] = useState(false);
 
+    const [Data, setData] = useState([])
 
-
+    const{role} = useGetRoleUser();
     const [Paciente, setPaciente] = useState({
         pacienteId: '',
         diagnostico: '',
@@ -50,9 +51,15 @@ export const useAtention = () => {
         setDateTime(time);
 
     }
+    const getUser = async () => {
+        const { data } = await axios.get(urlUser).then();
 
+        setData(data);
+    }
 
     const postAtention = async () => {
+       
+        console.log(role)
         let date = {
             fechaAtencion: DateTime
         }
@@ -90,7 +97,7 @@ export const useAtention = () => {
 
         getDataPatient();
         getDataAtention();
-
+        getUser();
     }, [])
 
     const PutAtention = async () => {

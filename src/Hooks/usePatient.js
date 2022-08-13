@@ -13,7 +13,6 @@ export const usePatient = () => {
     const [State, setState] = useState([]);
     const [Open, setOpen] = useState(false);
     const [AlertEdit, setAlertEdit] = useState(false);
-    
     const { openCloseCreateModal,
         CreateState,
         openCloseEditModal,
@@ -42,6 +41,7 @@ export const usePatient = () => {
     }
 
 
+
     const handleChange = ({ target }) => {
         const { name, value } = target;
         setPaciente(prevState => ({
@@ -52,7 +52,7 @@ export const usePatient = () => {
 
 
     const PostPatient = async () => {
-  
+        console.log(Data);
         const { data } = await axios.post(url, Paciente).then();
         setState(State.concat(data));
      
@@ -75,6 +75,7 @@ export const usePatient = () => {
     }
     useEffect(() => {
         getData();
+
     }, [])
 
     const PutPatient = async () => {
