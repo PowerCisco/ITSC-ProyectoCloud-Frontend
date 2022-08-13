@@ -51,6 +51,8 @@ export const BodyReportModal = (handleChange, openCloseReportModal, getDataRepor
                         <FormControlLabel onChange={handleChange} value="colaborador" control={<Radio />} label="colaborador" />
                         <FormControlLabel onChange={handleChange}  value="Externo" control={<Radio />} label="Externo" />
                         <FormControlLabel onChange={handleChange} value="Estudiante" control={<Radio />} label="Estudiante" />
+                        <FormControlLabel onChange={handleChange} value="Todos" control={<Radio />} label="Todos" />
+
                     </RadioGroup>
                 </FormControl>
             
@@ -66,7 +68,7 @@ export const BodyReportModal = (handleChange, openCloseReportModal, getDataRepor
 
             <div className={styles.buttonColumn} align="right">
             
-                    <Button onClick={() => getDataReport()}>Insertar</Button>
+                    <Button onClick={() => getDataReport()}>Generar</Button>
                     <Button onClick={() => openCloseReportModal()}>Cancelar</Button>
               
             </div>
