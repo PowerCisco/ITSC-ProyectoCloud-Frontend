@@ -5,15 +5,18 @@ import { Button, createTheme, ThemeProvider } from '@mui/material';
 import { BodyReportModal } from '../../Modal/ModalBody/Report/BodyReport';
 import jsPDF from 'jspdf'
 import * as XLSX from 'xlsx/xlsx.mjs'
-
+import {loginRequest} from '../../../Auth/authConfig'
 import 'jspdf-autotable'
+import { useMsal } from "@azure/msal-react";
 
 import './ReportPage.scss'
+import { useState } from 'react';
 
 export const ReportPage = () => {
-
+  const { instance, accounts, inProgress } = useMsal();
   const { handleChange, getDataReport, Report, openCloseReportModal, Data, reportButton } = useReport();
   const { bodyreport } = BodyReportModal(handleChange, openCloseReportModal, getDataReport);
+
 
   const theme = createTheme({
     palette: {
@@ -119,6 +122,8 @@ export const ReportPage = () => {
   }
   return (
     <>
+
+   
       <div className='report'>
         <ThemeProvider theme={theme}>
           <Button className={'reportIcon'} variant='contained' color='primary' onClick={() => openCloseReportModal()}> Generar Reporte</Button>

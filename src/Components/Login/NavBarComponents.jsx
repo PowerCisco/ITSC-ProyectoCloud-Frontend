@@ -18,7 +18,6 @@ export const NavBarComponents = () => {
   const { instance } = useMsal();
   const activeAccount = instance.getActiveAccount();
 
-
   const [dateState, setDateState] = useState(new Date());
   useEffect(() => {
     setInterval(() => setDateState(new Date()), 1000)
