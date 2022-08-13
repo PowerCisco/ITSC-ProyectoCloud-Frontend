@@ -6,6 +6,7 @@ const [CreateState, setCreateState] = useState(false);
 const [EditState, setEditState] = useState(false);
 const [Report, setReport] = useState(false)
 const [reportButton, setreportButton] = useState(true)
+const [Delete, setDelete] =useState(false);
 
 
   const openCloseCreateModal =()=>{
@@ -15,6 +16,10 @@ const [reportButton, setreportButton] = useState(true)
   const openCloseEditModal = () => {
 
     setEditState(!EditState);
+  }
+
+  const openCloseDeleteModal =()=>{
+    setDelete(!Delete);
   }
 const openCloserButtonReport = () =>{
   setreportButton(false);
@@ -41,7 +46,12 @@ const openCloserButtonReport = () =>{
 
         openCloserButtonReport,
         setreportButton,
-        reportButton
+        reportButton,
+
+
+        openCloseDeleteModal,
+        Delete,
+        setDelete
 
 
   }
