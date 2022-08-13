@@ -8,7 +8,6 @@ import { PageLayout } from "./Login/PageLayout";
 
 import { ChooseUrl } from "./ChooseUrl";
 import { Home } from "./Principal Page/Home";
-import { MenuNoAuth } from "./Login/MenuNoAuth";
 import { UnauthenticatedTemplate, AuthenticatedTemplate } from "@azure/msal-react";
 
 

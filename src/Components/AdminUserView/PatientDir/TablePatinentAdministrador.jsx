@@ -1,18 +1,19 @@
-import { Button } from '@material-ui/core';
-import './TablePatient.scss';
-import { DataGrid,GridToolbar,GridToolbarContainer,
+import { GridPatient } from '../../Modal/ModalBody/Patient/GridPatient';
+import { DataGrid,GridToolbarContainer,
     GridToolbarColumnsButton,
     GridToolbarFilterButton,
     GridToolbarExport,
      } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
+import './TablePatinentAdministrador.scss';
 
 
-export const TablePatinentAdministrador = ({State,EditOrDeleteSelector }) => {
+export const TablePatinentAdministrador = ({State}) => {
     const [pageSize, setPageSize] = useState(10)
+    const {customText} = GridPatient();
 
-    const columns = [
+     const columns = [
         { field: 'pacienteId', headerName: 'PacienteID', width: 70 },
         {
             field: 'nombre',
@@ -77,26 +78,10 @@ export const TablePatinentAdministrador = ({State,EditOrDeleteSelector }) => {
             editable: false,
 
         },
-        {
-            field: "Editar",
-            headerName: "Editar",
-            sortable: false,
-            renderCell: (params) => {
-         
-                const data = params.row;
-              return <Button onClick={()=>EditOrDeleteSelector(data,"Editar")}>Editar</Button>;
-            },
-          },
-          {
-            field: "Eliminar",
-            headerName: "Eliminar",
-            sortable: false,
-            renderCell: (params) => {
-         
-                const data = params.row;
-              return <Button onClick={()=>EditOrDeleteSelector(data,"Eliminar")}>Eliminar</Button>;
-            },
-          }
+        
+        
+      
+          
 
 
 
@@ -116,13 +101,12 @@ export const TablePatinentAdministrador = ({State,EditOrDeleteSelector }) => {
       }
 
 
-//sx={{ height: '90vh' , width: '100%' }}
     return (
         <>
 
-            <Box className='Box'>
+            <Box className='cajaas'>
                 <DataGrid
-                  className='Box-DataGrid'
+                  className='caja-Data'
                     getRowId={(State) => State.pacienteId}
                     
                     rows={State}
@@ -132,14 +116,7 @@ export const TablePatinentAdministrador = ({State,EditOrDeleteSelector }) => {
                     onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
             
                     pagination
-                    localeText={{
-                    
-                        toolbarExportPrint:"Imprimir",
-                       toolbarExportCSV:"Exportar Archivo .csv",
-                        toolbarColumns: "Columnas",
-                        toolbarFilters: "Filtros",
-                        toolbarExport: "Exportar Data"
-                      }}
+                    localeText={customText}
                     components={{ Toolbar: CustomToolbar }}
                     disableSelectionOnClick
                 />
