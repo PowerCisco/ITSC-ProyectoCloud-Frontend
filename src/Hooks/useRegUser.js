@@ -37,7 +37,6 @@ export const useReguser = () => {
 
     }
 
-
     const handleChange = ({ target }) => {
         const { name, value } = target;
         setUser(prevState => ({

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useGetRoleUser } from './useGetRoleUser';
 import { useModalController } from './useModalController';
 
 
@@ -15,10 +14,10 @@ export const useAtention = () => {
     const [DateTime, setDateTime] = useState("");
     const { openCloseCreateModal, setCreateState, CreateState, setEditState, openCloseEditModal, EditState } = useModalController();
     const [Open, setOpen] = useState(false);
-
+    const [AlertEdit, setAlertEdit]= useState(false)
     const [Data, setData] = useState([])
 
-    const{role} = useGetRoleUser();
+
     const [Paciente, setPaciente] = useState({
         pacienteId: '',
         diagnostico: '',
@@ -59,12 +58,11 @@ export const useAtention = () => {
 
     const postAtention = async () => {
        
-        console.log(role)
         let date = {
             fechaAtencion: DateTime
         }
         const medico = {
-            medicoId: 1
+            medicoId: 10
         }
         let AssingDateToPaciente = Object.assign(Paciente, date, medico);
         const { fechaNacimiento, sexo, matricula, carrera, tipoPaciente, departamento, ...UpdateObject } = AssingDateToPaciente;

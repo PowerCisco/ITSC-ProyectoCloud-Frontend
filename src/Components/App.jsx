@@ -16,15 +16,14 @@ export const App = ({ pca }) => {
     const history = useNavigate();
     const navigationClient = new CustomNavigationClient(history);
 
-
+    
     pca.setNavigationClient(navigationClient);
 
     return (
         <>
-
+        
             <MsalProvider instance={pca}>
                 <AuthenticatedTemplate>
-
 
                     <PageLayout>
 

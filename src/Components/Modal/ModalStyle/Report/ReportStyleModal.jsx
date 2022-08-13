@@ -8,7 +8,7 @@ const StylesReports = makeStyles((theme) => ({
     flexDirection: 'column',
 
     width: 250,
-    height: 420,
+    height: 520,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #90CAF9',
     boxShadow: theme.shadows[9],
